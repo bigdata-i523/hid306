@@ -8,9 +8,9 @@
 
 ```
 owner:
-    hid: 000
-    name: Gregor von Laszewski
-    url: https://github.com/bigdata-i523/sample-hid000
+    hid: 306
+    name: Cheruvu, Murali
+    url: https://github.com/bigdata-i523/hid306
 ```
 
 # Paper 1
