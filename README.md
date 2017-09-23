@@ -18,12 +18,11 @@ owner:
 ```
 paper1:
    author: 
-   - Gregor von Laszewski
-   - Fugang Wang
+   - Murali Cheruvu   
    hid:
    - 000
    - 001
-   title: This is my paper about xyz
+   title: Big Data and the Internet of Things (IoT)
    abstract: This paper showcases this and that and the other
    url: https://github.com/bigdata-i523/sample-hid000/paper1/paper1.pdf
    type: latex
