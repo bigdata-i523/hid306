@@ -18,10 +18,10 @@ paper1:
    hid:
    - 306
    title: Internet of Things Alliance with Big Data
-   abstract: This paper provides an introduction to IoT and how Big Data can effectively improve IoT process
+   abstract: This paper provides an introduction to Internet of Things (IoT) and how Big Data can effectively improve IoT process
    url: https://github.com/bigdata-i523/hid306/paper1/paper1.pdf
    type: latex
-   status: in progress
+   status: 90%
    chapter: Edge Computing
 ```
    
