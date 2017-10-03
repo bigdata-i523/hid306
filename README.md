@@ -17,12 +17,11 @@ paper1:
    - Murali Cheruvu
    hid:
    - 306
-   title: Internet of Things Alliance with Big Data
+   title: Internet of Things alliance with Big Data
    abstract: This paper provides an introduction to Internet of Things (IoT) and how Big Data can effectively improve IoT process
    url: https://github.com/bigdata-i523/hid306/paper1/paper1.pdf
    type: latex
-   status: 90%
-   chapter: Edge Computing
+   status: 90% complete  
 ```
    
 # Paper 2
