@@ -34,12 +34,13 @@ paper2:
    author: 
    - Gregor von Laszewski
    hid:
-   - 000
-   title: This is my paper about the other abc
-   abstract: This paper showcases this and that and the other in regards to abc
+   - 306
+   title: Why Deep Learning matters in IoT Data Analytics? (to be approved)
+   abstract: This paper focuses on why and how Internet of Things (IoT) data analytics 
+              makes better use of Deep Learning algorithms.
    url: https://github.com/bigdata-i523/hid306/paper2/paper2.pdf
    type: word
-   status: in progress
+   status: 0% completee
 ```
 
 # Project 
@@ -52,13 +53,14 @@ paper2:
    type: project
    type: report
    author: 
-   - Gregor von Laszewski
+   - Murali Cheruvu
    hid:
-   - 000
-   title: Benchmarking a BigData Docker deployment
-   abstract: This paper showcases tis and that and the other 
+   - 306
+   title: To be decided
+   abstract: 
+   
    url: https://github.com/bigdata-i523/sample-pid000/project/report.pdf
    type: latex
-   status: in progress
+   status: 0% complete
 ```
    
