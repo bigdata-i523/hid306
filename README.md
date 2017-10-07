@@ -18,7 +18,7 @@ paper1:
    hid:
    - 306
    title: The Internet of Things and Big Data
-   abstract: This paper provides an introduction to Internet of Things (IoT) and how Big Data analytics can effectively improve IoT process
+   abstract: The Internet of Things, or IoT, is all about data from connected devices. Millions of consumer and industrial devices drive IoT growth and challenge with data volume and variety. Big Data analytics helps combing through these high volumes of complex IoT data into meaningful business insights.
    url: https://github.com/bigdata-i523/hid306/paper1/paper1.pdf
    type: latex
    status: 100% complete  
