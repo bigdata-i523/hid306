@@ -26,6 +26,7 @@ paper1:
    url: https://github.com/bigdata-i523/hid306/paper1/paper1.pdf
    type: latex
    status: 100%
+   chapter: Edge Computing
 ```
    
 # Paper 2
