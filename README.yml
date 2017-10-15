@@ -4,12 +4,11 @@ owner:
     name: Cheruvu, Murali
     url: https://github.com/bigdata-i523/hid306
 paper1:
-    abstract: 'The Internet of Things, or IoT, is all about data from connected devices.  Millions
+    abstract: >
+        The Internet of Things, or IoT, is all about data from connected devices.  Millions
         of consumer and industrial devices drive IoT growth and challenge  with data
         volume and variety. Big Data analytics helps combing through  these high volumes
         of complex IoT data into meaningful business insights.
-
-        '
     author:
         - Murali Cheruvu
     chapter: Technology
