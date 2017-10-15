@@ -1,0 +1,31 @@
+---
+owner:
+    hid: 306
+    name: Cheruvu, Murali
+    url: https://github.com/bigdata-i523/hid306
+paper1:
+    abstract: 'The Internet of Things, or IoT, is all about data from connected devices.  Millions
+        of consumer and industrial devices drive IoT growth and challenge  with data
+        volume and variety. Big Data analytics helps combing through  these high volumes
+        of complex IoT data into meaningful business insights.
+
+        '
+    author:
+        - Murali Cheruvu
+    chapter: Technology
+    hid:
+        - 306
+    status: 100%
+    title: The Internet of Things and Big Data
+    type: latex
+    url: https://github.com/bigdata-i523/hid306/paper1/paper1.pdf
+paper2:
+    abstract: null
+    author:
+        - Murali Cheruvu
+    hid:
+        - 306
+    status: 0% complete
+    title: To be decided
+    type: latex
+    url: https://github.com/bigdata-i523/sample-pid000/project/report.pdf
