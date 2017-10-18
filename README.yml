@@ -7,7 +7,7 @@ paper1:
     abstract: >
         The Internet of Things, or IoT, is all about data from connected devices.  Millions
         of consumer and industrial devices drive IoT growth and challenge  with data
-        volume and variety. Big Data analytics helps combing through these high volumes
+        volume and variety. Big Data Analytics helps combing through these high volumes
         of complex IoT data into meaningful business insights.
     author:
         - Murali Cheruvu
@@ -15,7 +15,7 @@ paper1:
     hid:
         - 306
     status: 100%
-    title: The Internet of Things and Big Data
+    title: The Internet of Things and Big Data Analytics
     type: latex
     url: https://github.com/bigdata-i523/hid306/paper1/paper1.pdf
 paper2:
