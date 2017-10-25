@@ -19,14 +19,23 @@ paper1:
     status: 100%; 10/22/2017
     title: The Internet of Things and Big Data Analytics
     type: latex
-    url: https://github.com/bigdata-i523/hid306/paper1/paper1.pdf
+    url: https://github.com/bigdata-i523/hid306/paper1/report.pdf
 paper2:
-    abstract: null
+    abstract: >
+        The Deep Learning is unique in machine learning algorithms 
+        to analyze supervised and unsupervised datasets. Big Data 
+        challenges like high volumes, multi-dimensionality and 
+        feature engineering are well addressed using 
+        Deep Learning algorithms. Deep Leaning, with Edge and 
+        distributed Mesh computing, is best suited to handle 
+        IoT Analytics of millions of sensors producing 
+        petabytes of time-series data.
     author:
         - Murali Cheruvu
+    chapter: Technology
     hid:
         - 306
-    status: 0% complete
-    title: To be decided
+    status: 15% complete
+    title: Why Deep Learning matters in IoT Data Analytics?
     type: latex
-    url: https://github.com/bigdata-i523/sample-pid000/project/report.pdf
+    url:  https://github.com/bigdata-i523/hid306/paper2/report.pdf
