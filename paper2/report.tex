@@ -23,35 +23,53 @@
 	
 	\begin{abstract}
 		
-	The Deep Learning is unique in machine learning algorithms to analyze supervised and unsupervised datasets. Big Data challenges like high volumes, multi-dimensionality and feature engineering are well addressed using Deep Learning algorithms. Deep Leaning, with Edge and distributed Mesh computing, is best suited to handle IoT Analytics of millions of sensors producing petabytes of time-series data.
-		
+	The Deep Learning is unique in all machine learning algorithms to analyze supervised and unsupervised datasets. Big Data challenges, such as high volumes, multi-dimensionality and feature engineering, are well addressed using Deep Learning algorithms. Deep Leaning, with Edge and distributed Mesh computing, is best suited to handle IoT Analytics from millions of sensors producing petabytes of time-series data.
+			
 	\end{abstract}
 	
 	\keywords{i523, hid306, IoT, Deep Learning, Big Data Analytics}
 	
 	\maketitle
-	
 
 	
 	\section{Introduction}		
 
-	Historically supervised machine learning algorithms: linear regression, decision trees, Support Vector Machine (SVM), neural networks, etc. are popular in analyzing the datasets or in predicting future trends based sample training data. K-Clustering algorithms are good for unsupervised datasets to categorize based on the identified patterns in the data. While there are so many factors - nature of the domain, sample size of the dataset and number of attributes defining characteristics of the data - decide which machine learning algorithm works better, Deep Learning algorithms are getting greater traction. They address challenging analytics tasks, such as high-dimensionality and automatic creation of new features from existing complex hierarchical features, very well. 
+	Supervised machine learning algorithms: decision trees, linear regression, Support Vector Machines (SVMs), Naive Bayes, neural networks, etc. are popular for classification and regression problems by analyzing labeled training data. K-means clustering algorithms are good for unsupervised datasets to categorize based on the identified patterns in unlabeled data. While there are so many factors - nature of the domain, sample size of the dataset and number of attributes defining characteristics of the data - decide which machine learning algorithm works better, Deep Learning algorithms are, getting greater traction, addressing complex analytics tasks, including high-dimensionality and automatic creation of new features from existing complex hierarchical features, very well. 
 		
 	\section{Neural Networks}
 	
-	\section{Deep Learning}
-	\subsection{Curse of Dimensionality}
-	\subsection{Feature Engineering}
-	\subsection{Types of Deep Neural Networks}
+	Neural Networks are inspired by human brain, the way they solve complex problems. {\em Perceptron}, the first generation neural network, created a simple mathematical model, mimicking neuron - the basic unit of the brain, by taking several binary inputs and produced single binary output. {\em Sigmoid Neuron} improved learning by giving some {\em weightage} to the input based on importance of the corresponding input to the output so that tiny changes in the output due to the minor adjustments in the input weights (or biases) can be measured effectively. Neural Network is, a {\em directed graph}, organized by layers and layers are created by number of interconnected nodes (or neurons). Every node in a layer is connected with all the nodes from the previous layer; there will no interaction of nodes within a layer. As shown in Figure (1), a typical Neural Network contains three layers: input (left), hidden (middle) and output (right). The middle layer is called {\em hidden} only because the nodes of this layer are neither an input nor an output but the actual processing happen in the hidden layer. As data passes through layer by layer, each node acts as an {\em activation function} to process the input. The performance of a Neural Network is measured using {\em cost or error function} and the dependent input {\em weights} variables. {\em Back-propagation} method minimizes the error in the {\em weights} by applying an algorithm called {\em gradient descent} at each iteration step. For it to be effective, the cost function of the neural network must guarantee two mathematical properties: continuity and differentiability.
 	
+	\section{Deep Learning}
+	
+	Deep Learning is an advanced neural network, with multiple hidden layers (thousands or even more deep), that can work well with supervised (labeled) and unsupervised (unlabeled) datasets. Applications, such as speech, image and behavior patterns, having complex relationships in large-set of attributes, are best suited for Deep Learning Neural Networks.	
+	
+	\subsection{Feature Engineering}
+	
+	The dataset with too many dimensions, also known as attributes or features, create large sparsity and make it difficult to process. {\em Curse of dimensionality} is a scenario where the value added by the dimensions is much smaller in comparison to the processing cost. However, in certain applications, such as face recognition and patient electronic medical records, the complexity created by multiple dimensions do add value to the context. {\em Feature Engineering} is an exploratory analysis to identify the features that collectively contribute to better predictive modeling by removing irrelevant features and creating new features using the training information to identify the patterns in existing interrelated features. {\em Principal Component Analysis} (PCA) is a technique to analyze the interdependency among the features and keep only the principal, most relevant, features with minimum loss in the model. With enough training, Deep Learning makes neurons learn new features themselves, in an unsupervised manner, from existing features distributed in several hidden layers. {\em Stacked Autoencoder (AE)} is a Deep Learning algorithm to create advanced predictive models for large datasets having thousands or even millions of dimensions, automatically, with complex hierarchical attributes in non-linear fashion for simpler computing. Though AE is sophisticated, it is very difficult to understand the algorithm logic and so unable to reuse the learnings from the modeling to other systems. 
+		
+	
+	\subsection{Deep Neural Networks}
+	
+	{\em Convolutional Neural Network} (CNN) is a deep feedforward network, also called multilayer perceptrons (MLPs), consists of (1) convolutional layers - to identify the features using weights and biases, followed by (2) fully connected layers - to provide non-linearity, sub-sampling, performance and control data overfitting. CNN is used in image recognition applications. {\em Recursive Neural Network} (RNN) is, another type of Deep Learning, that uses same shared feature weights recursively for processing sequential data. RNN is used in Natural Language Processing (NLP) and time-series data problem spaces.  	
+
 	\section{IoT Data Analytics}
+	
 	\subsection{Complexity}
+	
 	\subsection{Scalability}
+	
+    Three factors: increased data volume, advanced algorithms and distributed computing, make Deep Learning algorithms scale to process huge datasets. 
+		
+		\begin{comment}
+	Deep Learning: With massive amounts of computational power, machines can now recognize objects and translate speech in real time. Artificial intelligence is finally getting smart. Like cats. Last June, Google demonstrated one of the largest neural networks yet, with more than a billion connections. A team led by Stanford computer science professor Andrew Ng and Google Fellow Jeff Dean showed the system images from 10 million randomly selected YouTube videos. One simulated neuron in the software model fixated on images of cats. Others focused on human faces, yellow flowers, and other objects. And thanks to the power of deep learning, the system identified these discrete objects even though no humans had ever defined or labeled them with the accuracy rate jumped above 50 percent.
+	
+	Training the many layers of virtual neurons in the experiment took 16,000 computer processors—the kind of computing infrastructure that Google has developed for its search engine and other services. At least 80 percent of the recent advances in AI can be attributed to the availability of more computer power.
+	\end{comment}
 	
 	\section{Conclusion}		
 
-	In contrast to traditional machine learning solutions, Deep Learning not only scales well with high volumes of input data but also facilitates in automatic decomposition of complex data representations of unsupervised and uncategorized data. Automatic discovery of new features, from convolutional or recurrent neural networks, makes Deep Learning predominant among all machine learning algorithms. Fuzzy logic of Deep Learning algorithms make them difficult to understand perhaps more adoption helps getting better handle at them. Deep Learning algorithms need deep research in validating the process of challenging Big Data Analytics tasks such as data tagging, scalability, semantic learning and the reliability of the predictions. 
- 
+	In contrast to traditional machine learning solutions, Deep Learning not only scales well with high volumes of input data but also facilitates in automatic decomposition of complex data representations of unsupervised and uncategorized data. Automatic discovery of new features, from convolutional or recurrent neural networks, makes Deep Learning predominant among all machine learning algorithms. Fuzzy logic of Deep Learning algorithms make them difficult to understand, perhaps, more adoption helps getting better handle at them. Deep Learning algorithms need deep research in validating the process of advanced Big Data Analytics tasks, such as IoT sensor time-series data, semantic learning, scalability, data tagging and reliability of the predictive models.  
 	
 	\begin{acks}		
 	
