@@ -35,7 +35,7 @@ paper2:
     chapter: Technology
     hid:
         - 306
-    status: 75% complete
+    status: 85% complete
     title: Why Deep Learning matters in IoT Data Analytics?
     type: latex
     url:  https://github.com/bigdata-i523/hid306/paper2/report.pdf
