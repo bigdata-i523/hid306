@@ -19,7 +19,7 @@ paper1:
     status: 100%; 10/26/2017
     title: The Internet of Things and Big Data Analytics
     type: latex
-    url: https://github.com/bigdata-i523/hid306/paper1/report.pdf
+    url: https://github.com/bigdata-i523/hid306/paper1
 paper2:
     abstract: >
         The Deep Learning is unique in machine learning algorithms 
@@ -35,7 +35,7 @@ paper2:
     chapter: Technology
     hid:
         - 306
-    status: 85% complete
+    status: 85%
     title: Why Deep Learning matters in IoT Data Analytics?
     type: latex
-    url:  https://github.com/bigdata-i523/hid306/paper2/report.pdf
+    url:  https://github.com/bigdata-i523/hid306/paper2
