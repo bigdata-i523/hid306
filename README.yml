@@ -5,10 +5,11 @@ owner:
     url: https://github.com/bigdata-i523/hid306
 paper1:
     abstract: >
-        The Internet of Things, or IoT, is all about data from connected devices.
-Millions of consumer and industrial devices drive IoT growth and challenge 
-with data volume and variety. Big Data Analytics helps combing through these 
-high volumes of complex IoT data into meaningful business insights.
+        The Internet of Things, or IoT, is all about data from
+        connected devices.  Millions of consumer and industrial
+        devices drive IoT growth and challenge with data volume and
+        variety. Big Data Analytics helps combing through these high
+        volumes of complex IoT data into meaningful business insights.
     author:
         - Murali Cheruvu
     chapter: Technology
@@ -21,12 +22,13 @@ high volumes of complex IoT data into meaningful business insights.
 paper2:
     review: Nov 6 2017
     abstract: >
-        The Deep Learning is unique in machine learning algorithms to analyze
-supervised and unsupervised datasets. Big Data challenges like high volumes,
-multi-dimensionality and feature engineering are well addressed using
-Deep Learning algorithms. Deep Leaning, with edge and distributed mesh computing, 
-is best suited to handle IoT Analytics of millions of sensors
-producing petabytes of time-series data.
+        The Deep Learning is unique in machine learning algorithms to
+        analyze supervised and unsupervised datasets. Big Data
+        challenges like high volumes, multi-dimensionality and feature
+        engineering are well addressed using Deep Learning
+        algorithms. Deep Leaning, with edge and distributed mesh
+        computing, is best suited to handle IoT Analytics of millions
+        of sensors producing petabytes of time-series data.
     author:
         - Murali Cheruvu
     chapter: Technology
