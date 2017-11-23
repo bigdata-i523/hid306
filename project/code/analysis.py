@@ -17,7 +17,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
 
-import plots
+import plots as plot_helper
 
 #****************************************************************
 # method: analyze_missing_values(df)
@@ -42,7 +42,7 @@ def _analyze_missing_values(df, saveAs = ''):
     miss['Name'] = miss.index
 
     #plot the missing value count
-    plots.bar_plot(miss, 'Name', 'Count', saveAs)
+    plot_helper.bar_plot(miss, 'Name', 'Count', saveAs)
 
 #end analyze_missing_values
 
@@ -52,6 +52,8 @@ def _analyze_missing_values(df, saveAs = ''):
 #*****************************************************************
 def _numeric_imputation(df_numeric):
            
+    #index = df_numeric['xxx'].loc[df['xx'].isnull()].iloc[0]
+    
     df_filled = pd.DataFrame(KNN(k=3).complete(df_numeric.as_matrix()))
     df_filled.columns = df_numeric.columns
     df_filled.index = df_numeric.index     
@@ -65,14 +67,26 @@ def _numeric_imputation(df_numeric):
 # method: _analyze_numeric_variables(df)
 # purpose: 
 #*****************************************************************
-def _analyze_numeric_variables(df_numeric):
+def _analyze_numeric_variables(df, numeric_variables):
+    
+    value_vars = numeric_variables
+    value_vars.remove('Id')
+    nd = pd.melt(df, value_vars = value_vars)
 
-    plot = sns.FacetGrid(df_numeric, col = 'variable', col_wrap = 2, sharex = False, sharey = False)
+    sns_grid = sns.FacetGrid(nd, col = 'variable', col_wrap = 2, sharex = False, sharey = False)
     
-    plot = plot.map(sns.distplot, 'value')
+    for i in xrange(0, len(value_vars), 1):
+        
+        sns_plot = sns_grid.map(sns.distplot[i], 'value')  
+            
+        plot = sns_plot.get_figure()
     
-    plots.save_plot(plot, "num_variables")
+        plot_helper.save_plot(plot, "num_variables_" + i)   
     
+        plot.show()
+       
+    #end for
+      
     
 #end _analyze_numeric_variables
     
@@ -84,12 +98,15 @@ def _analyze_correlations(df_numeric, target_variable):
     
     print('..analyzing correlations...')
     corr = df_numeric.corr()
-    plot = sns.heatmap(corr)
+    sns_plot = sns.heatmap(corr)
+    plot = sns_plot.get_figure()
     
-    plots.save_plot(plot, "correlations")
+    plot_helper.save_plot(plot, "correlations")
+    
+    plot.show()
     
     #top 15 highly positively correlated variables with target
-    print(corr[target_variable].sort_values(ascending = False)[:15])
+    print(corr[target_variable].sort_values(ascending = False)[15:])
     
     #bottom 5 highly positively correlated variables with target
     print(corr[target_variable].sort_values(ascending = False)[-5:])
@@ -233,12 +250,14 @@ def explore_and_preprocess(df, num_features, cat_features, target_col, row_id_co
     print('..check and analyze columns having null values...')
     _analyze_missing_values(df, 'missing_values')
     
-    print('fix null values of numeric variables using imputation techniques..')
-         
+    print('fix null values of numeric variables using imputation techniques..')         
     _numeric_imputation(df[num_features])
     
     print('.. render some graphs analyzing numeric variables...')      
-    #_analyze_numeric_variables(df[num_features])        
+    _analyze_numeric_variables(df, num_features)      
+    
+    print('.. analyze numeric variable correleations with Sale Price...')      
+    _analyze_correlations(df[num_features], target_col)  
         
     print('...end exploratory analysis')
 
