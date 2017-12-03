@@ -99,7 +99,7 @@ Two sample data sets are given with 79 attributes describing various aspects of 
 We will do the following steps to analyze, model and evaluation of the sale prices of the test data:
 
     1. Exploratory Data Analysis:
-        1.1. [Analyze Numerical Variables] (https://github.com/bigdata-i523/hid306/blob/master/project/code/1.1_exploratory_analysis_numerical.ipynb)
+        1.1. [Analyze Numerical Variables](https://github.com/bigdata-i523/hid306/blob/master/project/code/1.1_exploratory_analysis_numerical.ipynb)
         1.2. Analyze Categorical Variables
         1.3. Analyze Outliers and Skewed Data
         1.4. Apply Feature Engineering
