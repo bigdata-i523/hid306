@@ -3,7 +3,7 @@
 
 Apply exploratory data analysis and linear regression, a supervised machine learning algorithm, to predict Sale Prices of list of homes found in the sample test data using training data having Sale Prices in the neighborhood area. Compare the predicted model and results with various other supervised algorithms.
 
-Two sample data sets are given with 79 attributes describing various aspects of the residential homes in Ames and Iowa cities. Training data set contains Sale Price of the homes, using the training data set, how accurately we can predict Sale Prices of the homes in the test data set using thorough exploratory data analysis?
+Two sample data sets are given with 79 attributes describing various aspects of the residential homes in Ames and Iowa cities. Training data set contains Sale Price of the homes, using the training data set, how accurately we can predict Sale Prices of the homes in the test data set using thorough exploratory data analysis.
 
 ## Dataset Files:
 
