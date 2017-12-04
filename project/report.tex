@@ -314,7 +314,35 @@
 	\end{figure}
 	
 	\subsection{Lasso Algorithm}
+	Lasso is a regression model that uses shrinkage to bring data points towards the center, similar to the mean value of all the data points. Lasso stands for Least Absolute Shrinkage and Selection Operator. It is a regularized linear model with penalty term {\em lambda} to minimize the error. Parameter penalization controls overfitting the input data by shrinking variable coefficients to 0. Essentially this makes the variables no effect in the model, hence reduces the dimensions. Following is the lasso algorithm implementation for {\em sale price} predictions in python.
+		
+	\begin{verbatim}
 	
+	# python code - lasso algorithm
+	from sklearn.linear_model import Lasso
+	from sklearn.metrics import mean_squared_error
+	
+	train = pd.read_csv("train.csv")
+	test = pd.read_csv("test.csv")
+	target_vector = train["SalePrice"]
+	
+	#found this best alpha value through cross-validation
+	_best_alpha = 0.0001	
+	
+	_lasso_algo = Lasso(alpha = _best_alpha, 
+	                    max_iter = 50000)
+	
+	model = _lasso_algo.fit(train, target_vector)  
+		
+	y_train = target_vector
+	y_train_pred = _algo.predict(train)
+	
+	#root mean squared error (RMSE)
+	rmse_train = np.sqrt(rmse(y_train,y_train_pred))
+		
+	y_test_pred = _lasso_algo.predict(test)	
+	
+	\end{verbatim}
 	
 	
 	\subsection{Ridge Algorithm}
@@ -461,7 +489,8 @@
 	
 	
 	\subsection{Neural Network Algorithm}
-	
+	Neural Network is, a {\em directed graph}, organized by layers and layers are created by number of interconnected neurons (or nodes). Every neuron in a layer is connected with all the neurons from previous layer; there will be no interaction of neurons within a layer. The performance of a Neural Network is measured using {\em cost or error function} and the dependent input {\em weight} variables. {\em Forward-propagation} and {\em back-propagation} are two techniques, neural network uses repeatedly until all the input variables are adjusted or calibrated to predict accurate output. During, forward-propagation, information moves in forward direction and passes through all the layers by applying certain weights to the input parameters. {\em Back-propagation} method minimizes the error in the {\em weights} by applying an algorithm called {\em gradient descent} at each iteration step. We have used {\em TensorFlow} python library to predict the {\em sale price} of housing dataset using simple feed-forward neural network. TensorFlow uses {\em tensors}, special multi-dimensional arrays to store the datasets for easier linear algebra and vector calculus operations.
+		
 	\subsection{Model Ensembling}
 	We can create a robust predictive model with better accuracy by merging two or more machine learning algorithms. This technique is called {\em model ensembling}. Ensembled algorithms may be similar in functionality or may entirely be different from each other. Individual algorithms may not perform great but by ensembling them, the overall system can offer much better performance and accuracy. Variations in the predicting logic in each of these individual algorithms will bring unbiasedness into the unified model. {\em Bagging}, {\em boosting} and {\em stacking} are popular ensembling techniques. Many of the advanced machine learning algorithms use ensembled approaches to achieve accurate classifications or predictions. Random Forest uses bagging, XGBoost uses boosting and Neural Network applies stacking ensembling techniques. For the kaggle submission, we have created an ensembled model by averaging {\em Sale Price} of the top 3 performing ensembled algorithms - XGBoost, Lasso and Neural Network.  Following are the kaggle public scores that we have achieved by submitting all the six algorithms along with the ensembled model. As predicted, ensembled model has scored better compared to the individual algorithms. By applying advanced machine learning algorithms, we have placed our scores within top 15\% of the competition. Following table displays each algorithm and the {\em root-mean-square error} (RMSE) along with the {\em kaggle score}.
 	
