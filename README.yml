@@ -42,17 +42,13 @@ paper2:
 project:
     review: Dec 4 2017
     abstract: >
-        Apply exploratory data analysis and linear regression, a 
-        supervised machine learning algorithm, to predict Sale Prices 
-        of list of homes found in the sample test data using training 
-        data having Sale Prices in the neighborhood area. Compare the 
-        predicted model and results with various other 
-        supervised algorithms. Two sample data sets are given with 
-        79 attributes describing various aspects of the residential 
-        homes in Ames and Iowa cities. Training data set contains 
-        Sale Price of the homes, using the training data set, 
-        how accurately we can predict Sale Prices of the homes in the 
-        test data set using thorough exploratory data analysis.
+        Apply exploratory data analysis and implement various 
+        advanced supervised machine learning algorithms to predict 
+        neighborhood housing sale prices found in the sample test dataset. 
+        Compare the predicted models and results from these advanced 
+        supervised algorithms. Apply ensembled model predictions for 
+        kaggle competition to achieve good score.
+	
     author:
         - Murali Cheruvu
         - Anand Sriramulu        
