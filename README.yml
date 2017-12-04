@@ -48,7 +48,6 @@ project:
         Compare the predicted models and results from these advanced 
         supervised algorithms. Apply ensembled model predictions for 
         kaggle competition to achieve good score.
-	
     author:
         - Murali Cheruvu
         - Anand Sriramulu        
