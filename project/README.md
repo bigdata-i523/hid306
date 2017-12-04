@@ -119,10 +119,6 @@ Operating Environemnt: Ubuntu 16.4
 
 Steps
 
-1. Exploratory Data Analysis:
-           1.1. Analyze Numerical Variables
-1. Exploratory Data Analysis:
-1. Exploratory Data Analysis:
 1. Install Jupytier Notebook (If not installed in the machine)
    1.1.	python -m pip install --upgrade pip
    1.2. python -m pip install jupyter
