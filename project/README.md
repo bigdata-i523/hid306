@@ -115,7 +115,7 @@ We will do the following steps to analyze, model and evaluation of the sale pric
 
 # Installation Instructions
 
-Operating Environemnt: Ubuntu 16.4
+Operating Environment: Ubuntu 16.4
 
 Steps
 
