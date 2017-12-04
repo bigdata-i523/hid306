@@ -113,5 +113,44 @@ We will do the following steps to analyze, model and evaluation of the sale pric
     3 Ensemble and Kaggle Submission
 
 
+# Installation Instructions
 
+Operating Environemnt
+	Ubuntu 16.4
 
+Step 1:	Install Jupytier Notebook (If not installed in the machine)
+	python -m pip install --upgrade pip
+	python -m pip install jupyter
+
+Step 2: Install Anaconda (If not installed in the machine)
+	Dowload the installation file from the url 
+		https://repo.continuum.io/archive/Anaconda2-5.0.1-Linux-x86_64.sh
+	Run the following command in the terminal
+		bash ~/Downloads/Anaconda2-5.0.1-Linux-x86_64.sh
+
+Step 3: The following packages need to be installed for the machine learning algorathim
+	pip install seaborn
+	pip install tensorflow
+	pip install xgboost
+
+Step 4: Pull repository from Github
+	git@github.com:bigdata-i523/hid306.git
+
+Step 5: Run the project code
+	The Project folder will have the source code, data and images folder.
+	If the project folder is under jupyter notebooks root directory, it can be accessed in Jupyter as following 
+	http://localhost:8888/tree/project/code
+	(Assuming the folder name is 'project'. If the folder is different or placed under another folder replace the 'project' with the appropriate directory structure and name)
+	
+	The following juptyer scripts need to be run in the order here
+		1.1_exploratory_analysis_numerical.ipynb
+		1.2_exploratory_analysis_categorical.ipynb
+		1.3_outlier_and_skewed_data_analysis.ipynb
+		1.4_feature_engineering.ipynb
+		2.1_algorithm_svm.ipynb
+		2.2_algorithm_random_forest.ipynb
+		2.3_algorithm_ridge.ipynb
+		2.4_algorithm_lasso.ipynb
+		2.5_algorithm_neural_network_tf.ipynb
+		2.6_algorithm_xgboost.ipynb
+		3_ensemble_kaggle_submission.ipynb
