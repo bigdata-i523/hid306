@@ -115,40 +115,40 @@ We will do the following steps to analyze, model and evaluation of the sale pric
 
 # Installation Instructions
 
-Operating Environment: Ubuntu 16.4
+	Operating Environment: Ubuntu 16.4
 
-Steps
+	Steps
 
-1. Install Jupytier Notebook (If not installed in the machine)
-   1.1.	python -m pip install --upgrade pip
-   1.2. python -m pip install jupyter
+	1. Install Jupytier Notebook (If not installed in the machine)
+   		1.1.	python -m pip install --upgrade pip
+   		1.2. python -m pip install jupyter
 
-2. Install Anaconda (If not installed in the machine)
-   2.1 Dowload the installation file from the url: https://repo.continuum.io/archive/Anaconda2-5.0.1-Linux-x86_64.sh
-   2.2 Run the following command in the terminal - bash ~/Downloads/Anaconda2-5.0.1-Linux-x86_64.sh
+	2. Install Anaconda (If not installed in the machine)
+	   2.1 Dowload the installation file from the url: https://repo.continuum.io/archive/Anaconda2-5.0.1-Linux-x86_64.sh
+	   2.2 Run the following command in the terminal - bash ~/Downloads/Anaconda2-5.0.1-Linux-x86_64.sh
 
-3. The following packages need to be installed for the machine learning algorathim
-   3.1. pip install seaborn
-   3.2 pip install tensorflow
-   3.3 pip install xgboost
+	3. The following packages need to be installed for the machine learning algorathim
+	   3.1. pip install seaborn
+	   3.2 pip install tensorflow
+	   3.3 pip install xgboost
 
-4. Pull repository from Github
-   4.1 git@github.com:bigdata-i523/hid306.git
+	4. Pull repository from Github
+	   4.1 git@github.com:bigdata-i523/hid306.git
 
-5. Run the project code
-   5.1 The Project folder will have the source code, data and images folder.
-   5.2 If the project folder is under jupyter notebooks root directory, it can be accessed in Jupyter as following: http://localhost:8888/tree/project/code
-   Note: (Assuming the folder name is 'project'. If the folder is different or placed under another folder replace the 'project' with the appropriate directory structure and name)
-	
-6. Juyper Notebook files - execution order	
-   6.1. file: 1.1_exploratory_analysis_numerical.ipynb
-   6.2. file: 1.2_exploratory_analysis_categorical.ipynb
-   6.3. file: 1.3_outlier_and_skewed_data_analysis.ipynb
-   6.4. file: 1.4_feature_engineering.ipynb
-   6.5. file: 2.1_algorithm_svm.ipynb
-   6.6. file: 2.2_algorithm_random_forest.ipynb
-   6.7. file: 2.3_algorithm_ridge.ipynb
-   6.8. file: 2.4_algorithm_lasso.ipynb
-   6.9. file: 2.5_algorithm_neural_network_tf.ipynb
-   6.10. file: 2.6_algorithm_xgboost.ipynb
-   6.12. file: 3_ensemble_kaggle_submission.ipynb
+	5. Run the project code
+	   5.1 The Project folder will have the source code, data and images folder.
+	   5.2 If the project folder is under jupyter notebooks root directory, it can be accessed in Jupyter as following: http://localhost:8888/tree/project/code
+	   Note: (Assuming the folder name is 'project'. If the folder is different or placed under another folder replace the 'project' with the appropriate directory structure and name)
+
+	6. Juyper Notebook files - execution order	
+	   6.1. file: 1.1_exploratory_analysis_numerical.ipynb
+	   6.2. file: 1.2_exploratory_analysis_categorical.ipynb
+	   6.3. file: 1.3_outlier_and_skewed_data_analysis.ipynb
+	   6.4. file: 1.4_feature_engineering.ipynb
+	   6.5. file: 2.1_algorithm_svm.ipynb
+	   6.6. file: 2.2_algorithm_random_forest.ipynb
+	   6.7. file: 2.3_algorithm_ridge.ipynb
+	   6.8. file: 2.4_algorithm_lasso.ipynb
+	   6.9. file: 2.5_algorithm_neural_network_tf.ipynb
+	   6.10. file: 2.6_algorithm_xgboost.ipynb
+	   6.12. file: 3_ensemble_kaggle_submission.ipynb
