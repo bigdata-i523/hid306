@@ -46,8 +46,8 @@ project:
         advanced supervised machine learning algorithms to predict 
         neighborhood housing sale prices found in the sample test dataset. 
         Compare the predicted models and results from these advanced 
-        supervised algorithms. Apply ensembled model predictions for 
-        kaggle competition to achieve good score.
+        supervised algorithms. Apply ensembled model to achieve 
+        better predictions, hence get good score in kaggle competition.
     author:
         - Murali Cheruvu
         - Anand Sriramulu        
