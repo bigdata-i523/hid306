@@ -115,12 +115,12 @@ We will do the following steps to analyze, model and evaluation of the sale pric
 
 # Installation Instructions
 
-Operating Environemnt
-	Ubuntu 16.4
-Steps:
+Operating Environemnt: Ubuntu 16.4
+
+Steps
 
 1. Exploratory Data Analysis:
-   1.1 rtrrrrr
+           1.1. Analyze Numerical Variables
 1. Exploratory Data Analysis:
 1. Exploratory Data Analysis:
 1. Install Jupytier Notebook (If not installed in the machine)
