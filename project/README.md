@@ -120,14 +120,14 @@ We will do the following steps to analyze, model and evaluation of the sale pric
 	Steps
 
 	1. Install Jupytier Notebook (If not installed in the machine)
-   		1.1. python -m pip install --upgrade pip
-   		1.2. python -m pip install jupyter
+	   1.1. python -m pip install --upgrade pip
+	   1.2. python -m pip install jupyter
 
 	2. Install Anaconda (If not installed in the machine)
 	   2.1. Dowload the installation file from the url: https://repo.continuum.io/archive/Anaconda2-5.0.1-Linux-x86_64.sh
 	   2.2. Run the following command in the terminal - bash ~/Downloads/Anaconda2-5.0.1-Linux-x86_64.sh
 
-	3. The following packages need to be installed for the machine learning algorathim
+	3. The following packages need to be installed for the machine learning algorithms
 	   3.1. pip install seaborn
 	   3.2. pip install tensorflow
 	   3.3. pip install xgboost
