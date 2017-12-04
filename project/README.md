@@ -1,9 +1,9 @@
 
 # Predicting Housing Prices - Kaggle Competition
 
-Apply exploratory data analysis and linear regression, a supervised machine learning algorithm, to predict Sale Prices of list of homes found in the sample test data using training data having Sale Prices in the neighborhood area. Compare the predicted model and results with various other supervised algorithms.
-
-Two sample data sets are given with 79 attributes describing various aspects of the residential homes in Ames and Iowa cities. Training data set contains Sale Price of the homes, using the training data set, how accurately we can predict Sale Prices of the homes in the test data set using thorough exploratory data analysis.
+Apply exploratory data analysis and implement various advanced supervised machine learning algorithms to predict neighborhood housing sale prices found in the sample test dataset. Compare the predicted models and results from these advanced supervised algorithms. Apply ensembled model to achieve better predictions, hence get good score in kaggle competition.
+	
+Part of the kaggle competition, two sample data sets are given with 80 attributes (variables) describing various aspects of the residential homes in Ames and Iowa cities. Training dataset contains sale price of the homes, and using this training data set, how accurately we can predict Sale Prices of the homes in the test dataset using preprocessing and thorough data analysis. Many developers used advanced learning algorithms - XGBoost, Lasso and Neural Network, to predict the sale prices in the kaggle competition and achieved better kaggle scores. Kaggle score is a measure to indicate accuracy and the quality of the algorithm. We have applied various exploratory analysis techniques and engineer the features before applying a few advanced supervised learning algorithms.
 
 ## Dataset Files:
 
