@@ -143,12 +143,12 @@ Steps
 6. Juyper Notebook files - execution order	
    6.1. file: 1.1_exploratory_analysis_numerical.ipynb
    6.2. file: 1.2_exploratory_analysis_categorical.ipynb
-   6.2. file: 1.3_outlier_and_skewed_data_analysis.ipynb
-   6.2. file: 1.4_feature_engineering.ipynb
-   6.2. file: 2.1_algorithm_svm.ipynb
-   6.2. file: 2.2_algorithm_random_forest.ipynb
-   6.2. file: 2.3_algorithm_ridge.ipynb
-   6.2. file: 2.4_algorithm_lasso.ipynb
-   6.2. file: 2.5_algorithm_neural_network_tf.ipynb
-   6.2. file: 2.6_algorithm_xgboost.ipynb
-   6.2. file: 3_ensemble_kaggle_submission.ipynb
+   6.3. file: 1.3_outlier_and_skewed_data_analysis.ipynb
+   6.4. file: 1.4_feature_engineering.ipynb
+   6.5. file: 2.1_algorithm_svm.ipynb
+   6.6. file: 2.2_algorithm_random_forest.ipynb
+   6.7. file: 2.3_algorithm_ridge.ipynb
+   6.8. file: 2.4_algorithm_lasso.ipynb
+   6.9. file: 2.5_algorithm_neural_network_tf.ipynb
+   6.10. file: 2.6_algorithm_xgboost.ipynb
+   6.12. file: 3_ensemble_kaggle_submission.ipynb
