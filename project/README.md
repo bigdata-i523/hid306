@@ -120,6 +120,7 @@ Operating Environemnt
 Steps:
 
 1. Exploratory Data Analysis:
+   1.1 rtrrrrr
 1. Exploratory Data Analysis:
 1. Exploratory Data Analysis:
 1. Install Jupytier Notebook (If not installed in the machine)
