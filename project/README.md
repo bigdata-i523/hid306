@@ -140,8 +140,8 @@ We will do the following steps to analyze, model and evaluation of the sale pric
 	   5.1. The Project folder will have the source code, data and images folder.
 	   5.2. If the project folder is under jupyter notebooks root directory, it can be accessed in Jupyter as following:
 	   http://localhost:8888/tree/project/code
-	   Note: (Assuming the folder name is 'project'. If the folder is different or placed under another folder replace the 'project'
-	   with the appropriate directory structure and name)
+	   Note: (Assuming the folder name is 'project'. If the folder is different or placed under another folder replace 
+	   the 'project' with the appropriate directory structure and name)
 
 	6. Juyper Notebook files - execution order	
 	   6.1. file: 1.1_exploratory_analysis_numerical.ipynb
