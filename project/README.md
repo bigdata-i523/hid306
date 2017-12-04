@@ -124,7 +124,8 @@ We will do the following steps to analyze, model and evaluation of the sale pric
 	   1.2. python -m pip install jupyter
 
 	2. Install Anaconda (If not installed in the machine)
-	   2.1. Dowload the installation file from the url: https://repo.continuum.io/archive/Anaconda2-5.0.1-Linux-x86_64.sh
+	   2.1. Dowload the installation file from the url: 
+	   https://repo.continuum.io/archive/Anaconda2-5.0.1-Linux-x86_64.sh
 	   2.2. Run the following command in the terminal - bash ~/Downloads/Anaconda2-5.0.1-Linux-x86_64.sh
 
 	3. The following packages need to be installed for the machine learning algorithms
@@ -137,8 +138,10 @@ We will do the following steps to analyze, model and evaluation of the sale pric
 
 	5. Run the project code
 	   5.1. The Project folder will have the source code, data and images folder.
-	   5.2. If the project folder is under jupyter notebooks root directory, it can be accessed in Jupyter as following: http://localhost:8888/tree/project/code
-	   Note: (Assuming the folder name is 'project'. If the folder is different or placed under another folder replace the 'project' with the appropriate directory structure and name)
+	   5.2. If the project folder is under jupyter notebooks root directory, it can be accessed in Jupyter as following:
+	   http://localhost:8888/tree/project/code
+	   Note: (Assuming the folder name is 'project'. If the folder is different or placed under another folder replace the 'project'
+	   with the appropriate directory structure and name)
 
 	6. Juyper Notebook files - execution order	
 	   6.1. file: 1.1_exploratory_analysis_numerical.ipynb
