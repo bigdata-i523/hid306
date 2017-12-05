@@ -54,7 +54,7 @@ project:
     hid:
         - 306
         - 338
-    status: 100%; 12/3/2017
+    status: 95%; 12/3/2017
     title: Predicting Housing Prices - Kaggle Competition
     type: latex
     url: https://github.com/bigdata-i523/hid306/project
