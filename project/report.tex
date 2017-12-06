@@ -31,10 +31,16 @@
 	
 	\maketitle
 	
-	\section{Introduction} % The \section*{} command stops section numbering
+	\section{Background}
 	
-	Part of the kaggle competition, two sample data sets are given with 80 attributes (variables) describing various aspects of the residential homes in Ames and Iowa cities. Training dataset contains sale price of the homes, and using this training data set, how accurately we can predict Sale Prices of the homes in the test dataset using preprocessing and thorough data analysis. Many developers used advanced learning algorithms - XGBoost, Lasso and Neural Network, to predict the sale prices in the kaggle competition and achieved better kaggle scores. Kaggle score is a measure to indicate accuracy and the quality of each algorithm. We have applied various exploratory analysis techniques and engineer the features before applying a few advanced supervised learning algorithms.   
-			
+	Kaggle website hosts a platform for data science competitions. Predicting housing prices is a competition project, run and maintain by Kaggle. This project has two data sets - {\em train} and {\em test}, with 79 exploratory variables describing almost every aspect of residential homes in city of Ames, Iowa state. The goal of this competition is to predict the sale prices of residential homes listed in the test dataset as accurately as possible. Submissions are evaluated on {\em root mean squared error} (RMSE) between the logarithm of predicted value and the logarithm of observed sale price, also known as {\em kaggle score}. Submitted file expects two variables: row id and predicted sale price of each home listed in the test dataset. Our goal is to participate in this competition and get placed within top 15\% of submitted algorithms.
+	
+	
+	\section{Introduction} 
+	
+	Training dataset contains sale price of the homes, and using this training data set, how accurately we can predict Sale Prices of the homes in the test dataset using preprocessing and thorough data analysis. Many developers used advanced learning algorithms - XGBoost, Lasso and Neural Network, to predict the sale prices in the kaggle competition and achieved better kaggle scores. Kaggle score is a measure to indicate accuracy and the quality of each algorithm. We have applied various exploratory analysis techniques and engineer the features before applying a few advanced supervised learning algorithms.   
+	
+		
 	\section{Exploratory Data Analysis} 
 		
 	There are 1460 rows in the training data set and 1459 rows in the test dataset. Out of the 80 variables, 23 are nominal, 23 are ordinal, 14 are discrete, and 20 are continuous. We have combined training and testing datasets for easier analysis. We excluded Id attribute as it does not add value in the modeling. We also removed Sale Price, the target variable, from the training dataset. All attribute details are given in the appendix section as a reference.
