@@ -15,7 +15,7 @@ Part of the kaggle competition, two sample data sets are given with 80 attribute
 The training and testing sample datasets provided by Kaggle contain the same variables explaining the housing real estate aspects. Training dataset contains the sale price information whereas the testing dataset does not the sale price as that is the target variable we need to predict using supervised machine learning algorithm. Following are the list of variables describing the housing real estate domain. Good understanding of the domain is needed for better exploratory data analysis and to apply the matching machine learning algorithms to the problem space.
 
     Id: Row Id
-    SalePrice: the property’s sale price in dollars. This is the target variable to predict.
+    SalePrice: Sale price of the house in dollars. This is the target variable to predict.
     MSSubClass: The building class
     MSZoning: The general zoning classification
     LotFrontage: Linear feet of street connected to property
