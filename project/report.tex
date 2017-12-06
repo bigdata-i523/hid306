@@ -33,21 +33,36 @@
 	
 	\section{Background}
 	
-	Kaggle website hosts a platform for data science competitions. Predicting housing prices is a competition project, run and maintain by Kaggle. This project has two data sets - {\em train} and {\em test}, with 79 exploratory variables describing almost every aspect of residential homes in city of Ames, Iowa state. The goal of this competition is to predict the sale prices of residential homes listed in the test dataset as accurately as possible. Submissions are evaluated on {\em root mean squared error} (RMSE) between the logarithm of predicted value and the logarithm of observed sale price, also known as {\em kaggle score}. Submitted file expects two variables: row id and the predicted sale price of each home listed in the test dataset. Our goal is to participate in this competition and get placed within top 15\% of the submitted algorithms.
+	Kaggle website hosts a platform for data science competitions. Predicting housing prices is a competition project, run and maintain by Kaggle. This project has two data sets - {\em train} and {\em test}, with 79 exploratory variables describing almost every aspect of residential homes in city of Ames, Iowa state. The goal of this competition is to predict the sale prices of residential homes listed in the test dataset as accurately as possible. Submissions are evaluated on {\em root mean squared error} (RMSE) between the logarithm of predicted value and the logarithm of observed sale price, also known as {\em kaggle score}. Submitted file expects two variables: row id and the predicted sale price of each home listed in the test dataset. Our goal is to participate in this competition and get placed within top 20\% of the submitted algorithms.
 	
 	
 	\section{Introduction} 
 	
 	Training dataset of the {\em predicting housing sale prices} project contains sale price of the homes, and using this training data set, how accurately we can predict sale prices  of the homes in the test dataset using preprocessing and thorough data analysis. Many developers used advanced learning algorithms - XGBoost, Lasso and Neural Network, to predict the sale prices in the competition and achieved better kaggle scores. We have applied various exploratory analysis techniques and engineer the features before applying a few advanced supervised learning algorithms to create more accurately predicted models. 
 	
-		
+	\section{Domain Knowledge}
+	 To predict accurate {\em sale price}, we will need to understand the domain well. We need to build the intuition around all the exploratory variables in the dataset and focus on which factors could influence the target variable: {\em sale price}. If we do not find all these factors, perhaps, we need to add new features to address the gaps in dataset describing the domain. Some of the factors which, we think, can directly influence house prices are:
+	 
+	 \begin{itemize}
+	 	\item What is the overall Size or area of the house?
+	 	\item How good is the location of the house - closer to highways?
+	 	\item How good is the neighborhood?
+	 	\item How old is the house?
+	 	\item What is the quality of the construction?
+	 	\item How many garages are there in the house?
+	 	\item What are the floor plans?
+	 	\item How many number of bedrooms are there in the house?
+	 	\item How many number of bathrooms are there in the house?
+	 	\item What is the size of living area?
+	 \end{itemize}
+			
 	\section{Exploratory Data Analysis} 
 		
-	There are 1460 rows in the training data set and 1459 rows in the test dataset. Out of the 80 variables, 23 are nominal, 23 are ordinal, 14 are discrete, and 20 are continuous. We have combined training and testing datasets for easier analysis. We excluded Id attribute as it does not add value in the modeling. We also removed Sale Price, the target variable, from the training dataset. All the variables are listed in the appendix section as a reference.
+	We can start the process with exploratory data analysis. There are 1460 rows in the training data set and 1459 rows in the test dataset. Out of the 80 variables, 23 are nominal, 23 are ordinal, 14 are discrete, and 20 are continuous. We have combined training and testing datasets for easier analysis. We excluded Id attribute as it does not add value in the modeling. We also removed Sale Price, the target variable, from the training dataset. All the variables are listed in the appendix section as a reference.
 	
 	\subsection{Handling Missing Values}
 	
-	First part of the analysis was to check for any missing values in the training and testing datasets as shown in figure (\ref{c:check-nulls}). Using the bar plot shown in figure (\ref{fig:missing-values}), we have identified that there are 5 variables: {\em pool quality}, {\em miscellaneous features}, {\em alley}, {\em fence} and {\em fire place quality}, having the most missing data. All the missed values for the numeric variables are analyzed further to decide whether we need to delete the instances of all the data with missing values or fill them using meaningful data such as median of the corresponding variable. 
+	First part of the analysis was to check for any missing values in the training and testing datasets as shown in figure (\ref{c:check-nulls}). Using the bar plot shown in figure (\ref{fig:missing-values}), we have identified that there are 5 variables: {\em pool quality}, {\em miscellaneous features}, {\em alley}, {\em fence} and {\em fire place quality}, having the most missing data. All the missed values for the numeric variables are analyzed further to decide whether we need to delete the instances of all the data with missing values or impute them using meaningful data such as median of the corresponding variable. 
 	
 	\begin{figure}[htb]
 	\begin{verbatim}		
@@ -239,9 +254,22 @@
 
 	\subsection{Feature Engineering}
 	
-	Feature engineering is a technique to analyze all the variables those influence target variable for better predictions. Part of feature engineering, we may need to create new features to make the data to be more expressive. One of the key intents, in analyzing categorical variables, is to convert them into numerical factors as most of the machine learning algorithms expect all the variables to be numeric for them to work more effectively. Some of the categorical variables are ordinal. we can use T-shirt sizes: small, medium and large as an example to explain an ordinal variable. When we convert this category variable into numeric encoding, we need to retain the fact that there is an implicit order within the values. Supposing we give ordinal encoding as - small = 1, medium = 2 and large = 3; we will satisfy the implicit order or weightage and that helps in modeling the system by elevating the importance of this implicit ordering in the values of the ordinal variable.
+	Feature engineering is a technique to analyze all the variables those influence target variable for better predictions. Part of feature engineering, we may need to create new features to make the data to be more expressive. One of the key intents, in analyzing categorical variables, is to convert them into numerical factors as most of the machine learning algorithms expect all the variables to be numeric for them to work more effectively. Feature engineering is a difficult task; majority of the effort is manual and requires lots of domain knowledge.
 	
-	There are a few other encoding techniques, such as one-hot, binary, polynomial and helmert to factorize categorical variables. We will use ordinal and one-hot encoding techniques for this data set. One-hot encoding converts the category variable into many binary vectors, one new numeric variable for each value in the category. Assume that we have a categorical variable called signal-light with three possible values: green, yellow and red. We will need to convert these values into numeric - green = 1, yellow = 2 and red = 3. When we apply one-hot encoding on this variable, basically we are creating three new categorical variables - signal-light-green, signal-light-yellow and signal-light-red along with the original variable - signal-light, each is pretty much a binary vector having 1s for all the corresponding values; otherwise 0s. With hot-encoding, we are basically increasing dimensions in the model. After extensive feature engineering applied on the housing dataset, we have added {\em 228} new features (variables). Figure (\ref{c:code-one-hot}) shows the python methods to factorize categorical variables and one-hot encoding techniques. 
+	\subsubsection{Numerical Encoding}
+	 Some of the categorical variables are ordinal. we can use T-shirt sizes: small, medium and large as an example to explain an ordinal variable. When we convert this category variable into numeric encoding, we need to retain the fact that there is an implicit order within the values. Supposing, we give ordinal encoding as - small = 1, medium = 2 and large = 3; we will satisfy the implicit order or weightage and that helps in modeling the system by elevating the importance of this implicit ordering in the values of the ordinal variable.There are a few other encoding techniques, such as one-hot, binary, polynomial and helmert to factorize categorical variables. We will use ordinal and one-hot encoding techniques for this dataset. Following are a few categorical variables converted to numerical:
+	
+	\begin{itemize}
+		\item {\em Lot shape} is encoded as: 1 - regular, 2 - Irregular-I, 3 - Irregular-II, 4 - Irregular-III
+		 \item {\em Alley} is encoded as: 1 - none, 2 - gravel, 3 - paved
+		 \item All quality variables such as {\em garage quality} are encoded as: 0 - none, 1 - poor, 2 - fair 3 - typical 4 - good, 5 - excellent
+		 \item {\em Building type} is encoded as: 1 - single-family, 2 - two-family, 3 - duplex, 4 - townhouse end unit, 5 - townhouse inside unit
+		 \item {\em Overall quality} is encoded as: 1 to 3 - bad, 4 to 6 - average, 7 to 10 - good		 
+		 
+	\end{itemize}
+
+	\subsubsection{One-hot Encoding}
+	 One-hot encoding converts the category variable into many binary vectors, one new numeric variable for each value in the category. Assume that we have a categorical variable called signal-light with three possible values: green, yellow and red. We will need to convert these values into numeric - green = 1, yellow = 2 and red = 3. When we apply one-hot encoding on this variable, basically we are creating three new categorical variables - signal-light-green, signal-light-yellow and signal-light-red along with the original variable - signal-light, each is pretty much a binary vector having 1s for all the corresponding values; otherwise 0s. With hot-encoding, we are basically increasing dimensions in the model. After extensive feature engineering applied on the housing dataset, we have added {\em 228} new features (variables). Figure (\ref{c:code-one-hot}) shows the python methods to factorize categorical variables and one-hot encoding techniques. 
 	
 	\begin{figure}[htb]	
 	\begin{verbatim}	
@@ -270,10 +298,23 @@
 	\caption{Code - factorize and one-hot encoding} \label{c:code-one-hot} 
 	\end{figure}
 
+	\subsubsection{New Features}
+	By adding new features that fill the gaps in domain model, we can guide the model predictions more accurately. We can, easily, create more meaningful new features from existing features, such as:
+	
+	\begin{itemize} 
+		\item What is the total area of the house? - This variable is sum of 18  existing variables that are contributing to the overall size of the house, such as {\em lot frontage}, {\em lot area}, {\em ground live area}, {\em pool area} and {\em garage area}. 
+		\item Whether house has been ever remodeled? - We can find this out using two variables: {\em year built} and {\em year remodel added}.
+		\item House remodeled since? - We can find this out using two variables: {\em year sold} and {\em year remodel added}.
+		\item Is it a very new house? - This can be calculated based on {\em year built}
+		\item What is the age of the house? - This is a calculated value from {\em year build} (formula: 2010 - {\em year built})
+		\item When was it last sold? - This is a calculated value from {\em year build} (formula: 2010 - {\em year sold})
+		\item Which season house was last sold in? - This is a calculated value from {\em month build}
+	\end{itemize}
+	
 	
 	\section{Algorithms and Methodology}
 
-	Linear regression predicts the target variable using best possible straight line fit to the set predictor variables. The possible best fit is usually the one that minimizes the root mean squared error (RMSE) between the actual and predicted data points. However, with complex problem space such as the housing prices dataset, we have lots of variables relating to the target variable in a non-linear fashion. Trivial supervised learning algorithms will not be effective to provide accurate {\em sale price} predictions. To overcome this challenge, we have applied various advanced supervised learning algorithms, such as Support Vector Machine (SVM), Random Forest, Lasso, Ridge, XGBoost and Neural Network, to predict the test data housing prices.
+	Linear regression predicts the target variable using best possible straight line fit to the set predictor variables. The best fit is usually the one that minimizes the root mean squared error (RMSE) between the actual and predicted data points. However, with complex problem space such as the housing prices dataset, we have lots of variables relating to the target variable in a non-linear fashion. Trivial supervised learning algorithms will not be effective to provide accurate {\em sale price} predictions. To overcome this challenge, we have applied various advanced supervised learning algorithms, such as Support Vector Machine (SVM), Random Forest, Lasso, Ridge, XGBoost and Neural Network, to predict the test data housing prices.
 	
 	 
 	\subsection{Support Vector Machine (SVM) Algorithm}
@@ -536,7 +577,7 @@
 	Neural Network is, a {\em directed graph}, organized by layers and layers are created by number of interconnected neurons (or nodes). Every neuron in a layer is connected with all the neurons from previous layer; there will be no interaction of neurons within a layer. The performance of a Neural Network is measured using {\em cost or error function} and the dependent input {\em weight} variables. {\em Forward-propagation} and {\em back-propagation} are two techniques, neural network uses repeatedly until all the input variables are adjusted or calibrated to predict accurate output. During, forward-propagation, information moves in forward direction and passes through all the layers by applying certain weights to the input parameters. {\em Back-propagation} method minimizes the error in the {\em weights} by applying an algorithm called {\em gradient descent} at each iteration step. We have used {\em TensorFlow} python library to predict the {\em sale price} of housing dataset using simple feed-forward neural network. TensorFlow uses {\em tensors}, special multi-dimensional arrays to store the datasets for easier linear algebra and vector calculus operations.
 			
 	\subsection{Model Ensembling}
-	We can create a robust predictive model with better accuracy by merging two or more machine learning algorithms. This technique is called {\em model ensembling}. Ensembled algorithms may be similar in functionality or may entirely be different from each other. Individual algorithms may not perform great but by ensembling them, the overall system can offer much better performance and accuracy. Variations in the predicting logic in each of these individual algorithms will bring unbiasedness into the unified model. {\em Bagging}, {\em boosting} and {\em stacking} are popular ensembling techniques. Many of the advanced machine learning algorithms use ensembled approaches to achieve accurate classifications or predictions. Random Forest uses bagging, XGBoost uses boosting and Neural Network applies stacking ensembling techniques. For the kaggle submission, we have created an ensembled model by averaging {\em Sale Price} of the top 3 performing ensembled algorithms - XGBoost, Lasso and Neural Network. As predicted, ensembled model has scored better compared to the individual algorithms. By applying advanced machine learning algorithms, we have placed our scores within top 15\% of the competition. Table (\ref{tab:kaggle}) displays each algorithm and the {\em root mean squared error} (RMSE) along with the {\em kaggle score}.
+	We can create a robust predictive model with better accuracy by merging two or more machine learning algorithms. This technique is called {\em model ensembling}. Ensembled algorithms may be similar in functionality or may entirely be different from each other. Individual algorithms may not perform great but by ensembling them, the overall system can offer much better performance and accuracy. Variations in the predicting logic in each of these individual algorithms will bring unbiasedness into the unified model. {\em Bagging}, {\em boosting} and {\em stacking} are popular ensembling techniques. Many of the advanced machine learning algorithms use ensembled approaches to achieve accurate classifications or predictions. Random Forest uses bagging, XGBoost uses boosting and Neural Network applies stacking ensembling techniques. For the kaggle submission, we have created an ensembled model by averaging {\em Sale Price} of the top 3 performing ensembled algorithms - XGBoost, Lasso and Neural Network. As predicted, ensembled model has scored better compared to the individual algorithms. By applying advanced machine learning algorithms, we have placed our scores within top 20\% of the competition. Table (\ref{tab:kaggle}) displays each algorithm and the {\em root mean squared error} (RMSE) along with the {\em kaggle score}.
 					
 	\begin{table}[htb]
 		\caption{Table - Kaggle Submissions}
@@ -708,6 +749,337 @@
 	\item SaleCondition: Condition of sale
     \end{itemize}
 
+	\subsection{Factorization of categorical variables}
+	Following are the factorized categorical variable details:
+
+	\subsubsection{Street (Nominal)}: Type of road access to property
+	\begin{itemize}
+		\item  Grvl - Gravel
+		\item  Pave - Paved
+	\end{itemize}
+
+	\subsubsection{Alley (Nominal)}: Type of alley access to property
+	\begin{itemize}
+		\item  Grvl- Gravel
+		\item  Pave - Paved
+		\item  NA - No alley access
+	\end{itemize}
+
+	\subsubsection{Lot Shape (Ordinal)}: General shape of property
+	\begin{itemize}
+		\item  Reg - Regular
+		\item  IR1 - Slightly irregular
+		\item  IR2 - Moderately Irregular
+		\item  IR3 - Irregular
+	\end{itemize}
+
+	\subsubsection{Land Contour (Nominal)}: Flatness of the property
+	\begin{itemize}
+		\item  Lvl - Near Flat /Level
+		\item  Bnk - Banked - Quick and significant rise from street grade to building
+		\item  HLS - Hillside - Significant slope from side to side
+		\item  Low - Depression
+	\end{itemize}
+	\subsubsection{Land Slope (Ordinal)}: Slope of property
+	\begin{itemize}
+		\item  Gtl - Gentle slope
+		\item  Mod - Moderate Slope
+		\item  Sev - Severe Slope
+	\end{itemize}
+
+	\subsubsection{Utilities (Ordinal)}: Type of utilities available
+	\begin{itemize}
+		\item  AllPub  - All public Utilities (E,G,W, and S)
+		\item  NoSewr  - Electricity, Gas, and Water (Septic Tank)
+		\item  NoSeWa  - Electricity and Gas Only
+		\item  ELO - Electricity only
+	\end{itemize}
+
+	\subsubsection{Lot Config (Nominal)}: Lot configuration
+	\begin{itemize}
+		\item  Inside - Inside lot
+		\item  Corner - Corner lot
+		\item  CulDSac - Cul-de-sac
+		\item  FR2 - Frontage on 2 sides of property
+		\item  FR3 - Frontage on 3 sides of property
+	\end{itemize}
+
+	\subsubsection{Neighborhood (Nominal)}: Physical locations within Ames city limits (map available)
+	\begin{itemize}
+		\item  Blmngtn - Bloomington Heights
+		\item  Blueste - Bluestem
+		\item  BrDale - Briardale
+		\item  BrkSide - Brookside
+		\item  ClearCr - Clear Creek
+		\item  CollgCr - College Creek
+		\item  Crawfor - Crawford
+		\item  Edwards - Edwards
+		\item  Gilbert - Gilbert
+		\item  Greens - Greens
+		\item  GrnHill - Green Hills
+		\item  IDOTRR - Iowa DOT and Rail Road
+		\item  Landmrk - Landmark
+		\item  MeadowV - Meadow Village
+		\item  Mitchel - Mitchell
+		\item  Names - North Ames
+		\item  NoRidge - Northridge
+		\item  NPkVill - Northpark Villa
+		\item  NridgHt - Northridge Heights
+		\item  NWAmes - Northwest Ames
+		\item  OldTown - Old Town
+		\item  SWISU - South and West of Iowa State University
+		\item  Sawyer - Sawyer
+		\item  SawyerW - Sawyer West
+		\item  Somerst - Somerset
+		\item  StoneBr - Stone Brook
+		\item  Timber - Timberland
+		\item  Veenker - Veenker
+	\end{itemize}
+	\subsubsection{Condition 1 (Nominal)}: Proximity to various conditions
+	\begin{itemize}
+		\item  Artery - Adjacent to arterial street
+		\item  Feedr - Adjacent to feeder street
+		\item  Norm - Normal
+		\item  RRNn - Within 200 feet of North-South Railroad
+		\item  RRAn - Adjacent to North-South Railroad
+		\item  PosN - Near positive off-site feature--park, greenbelt, etc.
+		\item  PosA - Adjacent to positive off-site feature
+		\item  RRNe - Within 200 feet of East-West Railroad
+		\item  RRAe - Adjacent to East-West Railroad
+	\end{itemize}
+	\subsubsection{Condition 2 (Nominal)}: Proximity to various conditions (if more than one is present)
+	\begin{itemize}
+		\item  Artery - Adjacent to arterial street
+		\item  Feedr - Adjacent to feeder street
+		\item  Norm - Normal
+		\item  RRNn - Within 200 feet of North-South Railroad
+		\item  RRAn - Adjacent to North-South Railroad
+		\item  PosN - Near positive off-site feature--park, greenbelt, etc.
+		\item  PosA - Adjacent to positive off-site feature
+		\item  RRNe - Within 200 feet of East-West Railroad
+		\item  RRAe - Adjacent to East-West Railroad
+	\end{itemize}
+
+	\subsubsection{Bldg Type (Nominal)}: Type of dwelling
+	\begin{itemize}
+		\item  1Fam - Single-family Detached
+		\item  2FmCon - Two-family Conversion; originally built as one-family dwelling
+		\item  Duplx - Duplex
+		\item  TwnhsE - Townhouse End Unit
+		\item  TwnhsI - Townhouse Inside Unit
+	\end{itemize}
+
+	\subsubsection{Variable: MS Zoning}
+	MS Zoning (Nominal): Identifies the general zoning classification of the sale.
+	\begin{itemize}
+		\item A - Agriculture
+		\item C - Commercial
+		\item FV - Floating Village Residential
+		\item I - Industrial
+		\item RH - Residential High Density
+		\item RL - Residential Low Density
+		\item RP - Residential Low Density Park
+		\item RM - Residential Medium Density
+	\end{itemize}
+
+	\subsubsection{House Style (Nominal)}: Style of dwelling
+	\begin{itemize}
+		\item  1Story - One story
+		\item  1.5Fin - One and one-half story: 2nd level finished
+		\item  1.5Unf - One and one-half story: 2nd level unfinished
+		\item  2Story - Two story
+		\item  2.5Fin - Two and one-half story: 2nd level finished
+		\item  2.5Unf - Two and one-half story: 2nd level unfinished
+		\item  SFoyer - Split Foyer
+		\item  SLvl - Split Level
+	\end{itemize}
+
+	\subsubsection{Overall Qual (Ordinal)}: Rates the overall material and finish of the house
+	\begin{itemize}
+		\item  10 - Very Excellent
+		\item  9 -  Excellent
+		\item  8 -  Very Good
+		\item  7 -  Good
+		\item  6 -  Above Average
+		\item  5 -  Average
+		\item  4 -  Below Average
+		\item  3 -  Fair
+		\item  2 -  Poor
+		\item  1 -  Very Poor
+	\end{itemize}
+
+	\subsubsection{Overall Cond (Ordinal)}: Rates the overall condition of the house
+	\begin{itemize}
+		\item  10 - Very Excellent
+		\item  9 -  Excellent
+		\item  8 -  Very Good
+		\item  7 -  Good
+		\item  6 -  Above Average
+		\item  5 -  Average
+		\item  4 -  Below Average
+		\item  3 -  Fair
+		\item  2 -  Poor
+		\item  1 -  Very Poor
+	\end{itemize}
+
+	\subsubsection{Roof Style (Nominal)}: Type of roof
+	\begin{itemize}
+		
+		\item  Flat - Flat
+		\item  Gable - Gable
+		\item  Gambrel - Gabrel (Barn)
+		\item  Hip - Hip
+		\item  Mansard - Mansard
+		\item  Shed - Shed
+	\end{itemize}
+
+	\subsubsection{Roof Matl (Nominal)}: Roof material
+	\begin{itemize}
+		\item  ClyTile - Clay or Tile
+		\item  CompShg - Standard (Composite) Shingle
+		\item  Membran - Membrane
+		\item  Metal -   Metal
+		\item  Roll - Roll
+		\item  Tar and Grv - Gravel and Tar
+		\item  WdShake - Wood Shakes
+		\item  WdShngl - Wood Shingles
+	\end{itemize}
+
+	\subsubsection{Exterior 1 and 2 (Nominal)}: Exterior covering on house
+	\begin{itemize}
+		\item  AsbShng - Asbestos Shingles
+		\item  AsphShn - Asphalt Shingles
+		\item  BrkComm - Brick Common
+		\item  BrkFace - Brick Face
+		\item  CBlock -  Cinder Block
+		\item  CemntBd - Cement Board
+		\item  HdBoard - Hard Board
+		\item  ImStucc - Imitation Stucco
+		\item  MetalSd - Metal Siding
+		\item  Other - Other
+		\item  Plywood - Plywood
+		\item  PreCast - PreCast
+		\item  Stone - Stone
+		\item  Stucco - Stucco
+		\item  VinylSd - Vinyl Siding
+		\item  Wd Sdng - Wood Siding
+		\item  WdShing - Wood Shingles
+	\end{itemize}
+
+	\subsubsection{Mas Vnr Type (Nominal)}: Masonry veneer type
+	\begin{itemize}
+		\item  BrkCmn - Brick Common
+		\item  BrkFace - Brick Face
+		\item  CBlock - Cinder Block
+		\item  None - None
+		\item  Stone - Stone
+	\end{itemize}
+
+	\subsubsection{Bsmt Cond, Exter Qual and Exter Cond (Ordinal)}: Evaluates the quality of the material on the exterior
+	\begin{itemize}
+		\item  Ex - Excellent
+		\item  Gd - Good
+		\item  TA - Average/Typical
+		\item  Fa - Fair
+		\item  Po - Poor
+	\end{itemize}
+
+	\subsubsection{Foundation (Nominal)}: Type of foundation
+	\begin{itemize}
+		\item  BrkTil - Brick and Tile
+		\item  CBlock - Cinder Block
+		\item  PConc - Poured Concrete
+		\item  Slab - Slab
+		\item  Stone - Stone
+		\item  Wood - Wood
+	\end{itemize}
+
+	\subsubsection{Bsmt Qual (Ordinal)}: Evaluates the height of the basement
+	\begin{itemize}
+		\item  Ex - Excellent (100+ inches)
+		\item  Gd - Good (90-99 inches)
+		\item  TA - Typical (80-89 inches)
+		\item  Fa - Fair (70-79 inches)
+		\item  Po - Poor (<70 inches)
+		\item  NA - No Basement
+	\end{itemize}
+	
+	\subsubsection{Bsmt Exposure (Ordinal)}: Refers to walkout or garden level walls
+	\begin{itemize}
+		\item  Gd - Good Exposure
+		\item  Av - Average Exposure (split levels or foyers typically score average or above)
+		\item  Mn - Minimum Exposure
+		\item  No - No Exposure
+		\item  NA - No Basement
+	\end{itemize}
+	
+	\subsubsection{BsmtFin Type 1 (Ordinal)}: Rating of basement finished area
+	\begin{itemize}
+		\item  GLQ - Good Living Quarters
+		\item  ALQ - Average Living Quarters
+		\item  BLQ - Below Average Living Quarters
+		\item  Rec - Average Rec Room
+		\item  LwQ - Low Quality
+		\item  Unf - Unfinished
+		\item  NA - No Basement
+	\end{itemize}
+
+	\subsubsection{BsmtFinType 2  (Ordinal)}: Rating of basement finished area (if multiple types)
+	\begin{itemize}
+		\item  GLQ - Good Living Quarters
+		\item  ALQ - Average Living Quarters
+		\item  BLQ - Below Average Living Quarters
+		\item  Rec - Average Rec Room
+		\item  LwQ - Low Quality
+		\item  Unf - Unfinished
+		\item  NA - No Basement
+	\end{itemize}
+	\subsubsection{Heating (Nominal)}: Type of heating
+	\begin{itemize}
+		\item  Floor - Floor Furnace
+		\item  GasA - Gas forced warm air furnace
+		\item  GasW - Gas hot water or steam heat
+		\item  Grav - Gravity furnace
+		\item  OthW - Hot water or steam heat other than gas
+		\item  Wall - Wall furnace
+	\end{itemize}
+		
+	\subsubsection{Electrical (Ordinal)}: Electrical system
+	\begin{itemize}
+		\item  SBrkr - Standard Circuit Breakers and Romex
+		\item  FuseA - Fuse Box over 60 AMP and all Romex wiring (Average)
+		\item  FuseF - 60 AMP Fuse Box and mostly Romex wiring (Fair)
+		\item  FuseP - 60 AMP Fuse Box and mostly knob and tube wiring (poor)
+		\item  Mix - Mixed
+	\end{itemize}
+	
+	
+	
+	\subsubsection{HeatingQC (Ordinal)}: Heating quality and condition
+	\begin{itemize}
+		\item  Ex - Excellent
+		\item  Gd - Good
+		\item  TA - Average/Typical
+		\item  Fa - Fair
+		\item  Po - Poor
+	\end{itemize}
+	
+	\subsubsection{Central Air (Nominal)}: Central air conditioning
+	\begin{itemize}
+		\item  N - No
+		\item  Y - Yes
+	\end{itemize}
+
+	\subsubsection{KitchenQual (Ordinal)}: Kitchen quality
+	\begin{itemize}
+		\item  Ex - Excellent
+		\item  Gd - Good
+		\item  TA - Typical/Average
+		\item  Fa - Fair
+		\item  Po - Poor
+	\end{itemize}
+	
+	
 	\nocite{*}
 	
 	\begin{acks}	
