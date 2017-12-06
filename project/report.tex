@@ -38,9 +38,10 @@
 	\section{Exploratory Data Analysis} 
 		
 	There are 1460 rows in the training data set and 1459 rows in the test dataset. Out of the 80 variables, 23 are nominal, 23 are ordinal, 14 are discrete, and 20 are continuous. We have combined training and testing datasets for easier analysis. We excluded Id attribute as it does not add value in the modeling. We also removed Sale Price, the target variable, from the training dataset. All attribute details are given in the appendix section as a reference.
+	
 	\subsection{Handling Missing Values}
 	
-	First part of the analysis, we have checked for the missing values in the dataset. we have also identified that there are 6 variables having most of the missing data. All the missed values for the numeric variables are analyzed further to decide whether delete the instances of all the data with missing values or fill them using meaningful data such as median of the corresponding variable.
+	First part of the analysis was to check for any missing values in the training and testing datasets as shown in figure (\ref{c:check-nulls}). Using the bar plot shown in figure (\ref{fig:missing-values}), we have identified that there are 5 variables: {\em pool quality}, {\em miscellaneous features}, {\em alley}, {\em fence} and {\em fire place quality}, having the most missing data. All the missed values for the numeric variables are analyzed further to decide whether we need to delete the instances of all the data with missing values or fill them using meaningful data such as median of the corresponding variable. 
 	
 	\begin{figure}[htb]
 	\begin{verbatim}		
@@ -63,7 +64,7 @@
 	\end{figure}
 
 	\subsection{Analyze Numerical Variables}
-	There are 37 numeric variables after excluding the {\em Id} variable. We have analyzed the numerical variables for data patterns such as skewed data and range of the possible values. {\em  over all quality}, {\em ground living area}, {\em garage cars} and {\em garage area} graphs are included as samples.
+	There are 37 numerical variables after excluding the {\em Id} variable. We have analyzed all the numerical variables for data patterns such as skewness in the data and range of the possible values. We have shown {\em sale price}, {\em overall quality}, {\em garage live area} and {\em year built}, in the figures (\ref{fig:num-feature-1}) and (\ref{fig:num_features_2}) as a few sample plots from the numerical analysis. Corresponding code snippet is shown in figure (\ref{c:analyze-numeric}).
 	
 	\begin{figure}[htb]
 	\begin{verbatim}
@@ -94,7 +95,7 @@
 	\end{figure}
 
 	\subsection{Analyze Categorical Variables}
-	There are 43 categorical variables in the dataset. We have analyzed all categorical variables and found the ways to fill the missing values and also the way we need to convert them into numerical variables. Later in the feature engineering section, we will go through the details. {\em neighborhood} and {\em sale type} graphs are included as samples.
+	There are 43 categorical variables in the combined dataset. We have analyzed all categorical variables and found the ways to fill the missing values. We has also evaluated proper approaches to convert them into numerical factors. Later on in the feature engineering section, we will go through more details on numerical factors. Categorical variable factors and the corresponding code snippet for {\em neighborhood} and {\em sale type} are shown in figure (\ref{c:analyze-cat}) and figures (\ref{fig:cat_features_1}).
 	
 	\begin{figure}[htb]
 	\begin{verbatim}	
@@ -127,7 +128,7 @@
 \end{figure}
 	
 	\subsection{Analyze Correlations}		
-	{\em Numpy} package offers correlations functionality to analyze the variables that highly positively or negatively correlated with {\em sale price} and with the other variables. We can  visualize a few pair-wise correlation graphs with sale price for detailed analysis. From the correlation-plot we can list the top 10 features those are strongly correlated with the target variable - {\em sale price}.
+	{\em Numpy} package offers correlations functionality to analyze the variables that are positively or negatively correlated with the {\em sale price} and also analyze any interdependencies among the variables. Figure (\ref{c:cor}) and (\ref{fig:correlations}) shows the code snippet and the correlations plot. From that we can list the top 10 features those are strongly correlated with the target variable - {\em sale price}. We can visualize a few pair-wise correlation graphs with sale price for further detailed analysis. Figures (\ref{fig:pair-wise-correlations}) and (\ref{fig:pair-wise-correlations-2}) show how {\em overall quality}, {\em ground live area}, {\em garage cars} and {\em garage area} are positively correlated with {\em sale price}.
 	
 	\begin{figure}[htb]
 	\begin{verbatim}	
@@ -174,11 +175,17 @@
 	\end{enumerate}
 
 	\subsection{Skewed Data Analysis}
-	From the numerical analysis, we have identified that there are a few numerical variables need further analysis to identify the skewed data. We did not find any key variables those have skewed more than 75\%. However, we wanted to replace the {\em sale price} with corresponding logarithmic value for the predictive models and later convert it back to the exponential value before submitting to the kaggle competition. 
+	From the numerical analysis, we have identified that there are a few numerical variables need further analysis to identify the skewed data. We did not find any key variables those have skewed more than 75\%. However, we wanted to replace the {\em sale price} with corresponding logarithmic value for the predictive models and later convert it back to the exponential value before submitting to the kaggle competition. Figure (\ref{fig:sale-price-skew}) shows the {\em sale price}, before and after applying the logarithmic value. 
 	
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=1.0\columnwidth]{images/sale_price_skew}	
+		\caption{Graph - Sale Price skewness} \label{fig:sale-price-skew} 
+	\end{figure}
+
 	\subsection{Outlier Analysis}
 	
-	Continuing with exploratory analysis, We have analyzed the outliers using {\em Cook's distance} and then further analyzed two key variables - {\em ground live area} and {\em garage area} that are in high correlation with {\em sale price}. We have removed the outlier rows related to these two variables as they are only 8 rows impacting the training dataset.
+	Continuing with exploratory analysis, we have analyzed the outliers using {\em Cook's distance}. Cook's distance is a measure calculated from a regression model to find out the influence exerted by each observation (row) on the predictions. As a practice,  those observations that have a Cook's distance greater than 4 times the mean value may be classified as an outlier. Outlier detection can be done using univariate and multivariate analysis. In univariate model, the outliers are those observations that are present outside of 1.5 * IQR, where IQR ({\em Inter Quartile Range}) is the difference between 75th and 25th quartiles. Analyzing outliers in any observations based on single variable may lead to incorrect inferences. Cook's distance generalizes the outlier analysis using multivariate approach \cite{1}. Figure (\ref{c:code-outliers}) is the code implementing Cook's distance to find the outliers from training dataset and figure (\ref{fig:outliers}) shows the scatter plot with outliers being marked as bubbles. The bigger the bubbles, the bigger outlier deviations from the mean value. We have further analyzed two key variables - {\em ground live area} and {\em garage area} that are in high correlation with the {\em sale price}. From the scatter plot shown in figure (\ref{fig:gr-liv-area-outlier}), we can see that {\em garage live area} has 4 outliers with values greater than 4,000 sq ft. We can also visualize 4 outliers in {\em garage area} scatter plot with values greater than 1,200 sq ft. as shown in figure (\ref{fig:garage-area-outlier}).  We have removed the 8 outlier rows related to these two variables from the training dataset, the corresponding code snippet shown in figure (\ref{c:code-del-outliers}).
 	
 	\begin{figure}[htb]		
 	\begin{verbatim}	
@@ -198,20 +205,9 @@
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=.95\columnwidth]{images/outliers}	
-		\caption{Graph - Outliers using Cook's distance} \label{fig:fig-outliers} 
+		\caption{Graph - Outliers using Cook's distance} \label{fig:outliers} 
 	\end{figure}
-	
-	\begin{figure}[htb]				
-	\begin{verbatim}	
-	# python code - remove outlier rows
-	# fix all extreme outliers based on outlier analysis
-	# 8 rows will be deleted
-	train = train[train.GrLivArea <= 4000]
-	train = train[train.GarageArea <= 1200]
-	\end{verbatim}
-	\caption{Code - Delete Outliers} \label{c:code-del-outliers} 
-	\end{figure}
-
+		
 	\begin{figure}[htb]
 	\centering
 	\includegraphics[width=.95\columnwidth]{images/gr_liv_area_outlier}	
@@ -222,6 +218,17 @@
 	\centering
 	\includegraphics[width=.95\columnwidth]{images/garage_area_outlier}	
 	\caption{Graph - Garage Area Outliers} \label{fig:garage-area-outlier} 
+	\end{figure}
+
+	\begin{figure}[htb]				
+		\begin{verbatim}	
+		# python code - remove outlier rows
+		# fix all extreme outliers based on outlier analysis
+		# 8 rows will be deleted
+		train = train[train.GrLivArea <= 4000]
+		train = train[train.GarageArea <= 1200]
+		\end{verbatim}
+		\caption{Code - Delete Outliers} \label{c:code-del-outliers} 
 	\end{figure}
 
 	\subsection{Feature Engineering}
@@ -297,7 +304,7 @@
 
 	\subsection{Random Forest Algorithm}
 
-    Random Forest is an advanced machine learning algorithm for predictive analytics. Random Forest ensembles multiple decision trees to create an additive learning model from the sequence of base models created by each decision tree that worked on a sub-sample dataset. Random Forest models are suitable to handle tabular datasets with hundreds of numeric and categorical features. Along with missing values, non-linear relations between features and the target, will be handled well by random forest algorithms. With proper tuning of hyper-parameters of the random forest algorithm, it can perform well with decent accuracy in the predictions without overfitting the model. Unlike similar regression models, it does not offer feature coefficient information but it provides {\em feature ranking} functionality very nicely. Figure (\ref{c:rf}) shows the random forest algorithm details for the {\em sale price} predictions implemented in python using {\em sklearn} package.
+    Random Forest is an advanced machine learning algorithm for predictive analytics. Random Forest ensembles multiple decision trees to create an additive learning model from the sequence of base models created by each decision tree that worked on a sub-sample dataset. Random Forest models are suitable to handle tabular datasets with hundreds of numeric and categorical features. Along with missing values, non-linear relations between features and the target, will be handled well by random forest algorithms. With proper tuning of hyper-parameters of the random forest algorithm, it can perform well with decent accuracy in the predictions without overfitting the model. Unlike similar regression models, it does not offer feature coefficient information but it provides {\em feature ranking} functionality very nicely. Figure (\ref{c:rf}) shows the random forest algorithm details for the {\em sale price} predictions implemented using {\em sklearn} package and the figure (\ref{fig:random-feature-ranking}) shows the top 10 important features selected by random forest to model the predictions.
 	
 		\begin{figure}[htb]
 		\begin{verbatim}		
@@ -373,7 +380,7 @@
 	
 	\subsection{Ridge Algorithm}
 	
-	Ridge algorithm is very similar to lasso algorithm with the same goal. While lasso performs {\em L1 regularization}, ridge applies {\em L2 regularization} techniques in modeling the predictions. L1 regularization adds penalty to the variables equivalent to {\em absolute value of the magnitude} of the coefficients, where as L2 adds the penalty equivalent to {\em square of the magnitude} of the variable coefficients. Figure (\ref{c:ridge}) shows the python implementation of the ridge algorithm for the {\em sale price} predictions. 
+	Ridge algorithm is very similar to lasso algorithm with the same goal. While lasso performs {\em L1 regularization}, ridge applies {\em L2 regularization} techniques in modeling the predictions. L1 regularization adds penalty to the variables equivalent to {\em absolute value of the magnitude} of the coefficients, where as L2 adds the penalty equivalent to {\em square of the magnitude} of the variable coefficients. Figure (\ref{c:ridge}) shows the python implementation of the ridge algorithm for the {\em sale price} predictions. Figures ({\ref{fig:ridge-feature-ranking-pos}}) and (\ref{fig:ridge-feature-ranking-neg}) show the top 10 positively and top 10 negatively influencing variables with {\em sale price}.
 		
 	\begin{figure}[htb]
 	\begin{verbatim}
@@ -442,7 +449,7 @@
 
 	\subsection{XGB Boosting Algorithm}
 
-	XGBoost (eXtreme Gradient Boosting) is one of the Gradient Boosted Machine algorithms. It ensembles (combines) optimized model by taking trained models from all the preceding iterations. XGBoost regularizes the variables (parameters) to reduce the overfit and can work well with variables having missing values. It is empowered with built-in cross validation to reduce the boosting iterations; hence offers better performance along with parallel processing on distributed systems such as Hadoop. By tuning the XGBoost hyper parameters, we can achieve well optimized model that can make more accurate predictions. XGBoost uses {\em F-Score} to measure the importance of  variables. Table (\ref{tab:xgb-param}) explains the hyper-parameters of XGBoost algorithm and also given the python code implementing XGBoost algorithm for {\em sale price} predictions.
+	XGBoost (eXtreme Gradient Boosting) is one of the Gradient Boosted Machine algorithms. It ensembles (combines) optimized model by taking trained models from all the preceding iterations. XGBoost regularizes the variables (parameters) to reduce the overfit and can work well with variables having missing values. It is empowered with built-in cross validation to reduce the boosting iterations; hence offers better performance along with parallel processing on distributed systems such as Hadoop. By tuning the XGBoost hyper parameters, we can achieve well optimized model that can make more accurate predictions. XGBoost uses {\em F-Score} to measure the importance of  variables. Table (\ref{tab:xgb-param}) explains the hyper-parameters of XGBoost algorithm and also given the python code, as shown in figure (\ref{c:xgb}), implementing for {\em sale price} predictions. Figure (\ref{fig:xgb-feature-imp}) shows the top 10 feature selection by the XGBoost.
 	
 	\begin{table}[htb]
 		\center
@@ -523,7 +530,7 @@
 	Neural Network is, a {\em directed graph}, organized by layers and layers are created by number of interconnected neurons (or nodes). Every neuron in a layer is connected with all the neurons from previous layer; there will be no interaction of neurons within a layer. The performance of a Neural Network is measured using {\em cost or error function} and the dependent input {\em weight} variables. {\em Forward-propagation} and {\em back-propagation} are two techniques, neural network uses repeatedly until all the input variables are adjusted or calibrated to predict accurate output. During, forward-propagation, information moves in forward direction and passes through all the layers by applying certain weights to the input parameters. {\em Back-propagation} method minimizes the error in the {\em weights} by applying an algorithm called {\em gradient descent} at each iteration step. We have used {\em TensorFlow} python library to predict the {\em sale price} of housing dataset using simple feed-forward neural network. TensorFlow uses {\em tensors}, special multi-dimensional arrays to store the datasets for easier linear algebra and vector calculus operations.
 			
 	\subsection{Model Ensembling}
-	We can create a robust predictive model with better accuracy by merging two or more machine learning algorithms. This technique is called {\em model ensembling}. Ensembled algorithms may be similar in functionality or may entirely be different from each other. Individual algorithms may not perform great but by ensembling them, the overall system can offer much better performance and accuracy. Variations in the predicting logic in each of these individual algorithms will bring unbiasedness into the unified model. {\em Bagging}, {\em boosting} and {\em stacking} are popular ensembling techniques. Many of the advanced machine learning algorithms use ensembled approaches to achieve accurate classifications or predictions. Random Forest uses bagging, XGBoost uses boosting and Neural Network applies stacking ensembling techniques. For the kaggle submission, we have created an ensembled model by averaging {\em Sale Price} of the top 3 performing ensembled algorithms - XGBoost, Lasso and Neural Network. As predicted, ensembled model has scored better compared to the individual algorithms. By applying advanced machine learning algorithms, we have placed our scores within top 15\% of the competition. Table (\ref{tab:kaggle}) displays each algorithm and the {\em root-mean-square error} (RMSE) along with the {\em kaggle score}.
+	We can create a robust predictive model with better accuracy by merging two or more machine learning algorithms. This technique is called {\em model ensembling}. Ensembled algorithms may be similar in functionality or may entirely be different from each other. Individual algorithms may not perform great but by ensembling them, the overall system can offer much better performance and accuracy. Variations in the predicting logic in each of these individual algorithms will bring unbiasedness into the unified model. {\em Bagging}, {\em boosting} and {\em stacking} are popular ensembling techniques. Many of the advanced machine learning algorithms use ensembled approaches to achieve accurate classifications or predictions. Random Forest uses bagging, XGBoost uses boosting and Neural Network applies stacking ensembling techniques. For the kaggle submission, we have created an ensembled model by averaging {\em Sale Price} of the top 3 performing ensembled algorithms - XGBoost, Lasso and Neural Network. As predicted, ensembled model has scored better compared to the individual algorithms. By applying advanced machine learning algorithms, we have placed our scores within top 15\% of the competition. Table (\ref{tab:kaggle}) displays each algorithm and the {\em root mean squared error} (RMSE) along with the {\em kaggle score}.
 					
 	\begin{table}[htb]
 		\caption{Table - Kaggle Submissions}
@@ -545,48 +552,61 @@
 
    \section{Development Environment}
     
-    \begin{itemize}
-    	\item Operating Environment: Ubuntu 16.4 through Oracle Virtual Box 5.2
-    	\item Programming Language: Python 2.7
-    	\item Development Tools/Environment: Jupyter Notebook, Anaconda (data science platform)
-    	\item Python Libraries: numpy, pandas, sklearn, matplotlib, seaborn, xgboost and tensorflow
-    	\item Repository: git@github.com:bigdata-i523/hid306.git
-    	\item Project Folders:
-   	    	\begin{itemize}
-   	    		\item Code: all Jupyter notebook files
-   	    		\item Images: all output images as PDF files
-   	    		\item Data: all the input and output datasets in CSV format
-   	    	\end{itemize}
-    	\item Python Jupyter notebook files:
-    	\begin{itemize}
-    		\item 1.1\_exploratory\_analysis\_numerical.ipynb
-    		\item 1.2\_exploratory\_analysis\_categorical.ipynb
-	    	\item 1.3\_outlier\_and\_skewed\_data\_analysis.ipynb
-	    	\item 1.4\_feature\_engineering.ipynb
-	    	\item 2.1\_algorithm\_svm.ipynb
-	    	\item 2.2\_algorithm\_random\_forest.ipynb
-	    	\item 2.3\_algorithm\_ridge.ipynb
-	    	\item 2.4\_algorithm\_lasso.ipynb
-	    	\item 2.5\_algorithm\_neural\_network\_tf.ipynb
-	    	\item 2.6\_algorithm\_xgboost.ipynb
-	    	\item 3\_ensemble\_kaggle\_submission.ipynb	    	
-    	\end{itemize}
-        \item Input Datasets: 
-        \begin{itemize}
-        	\item train.csv
-        	\item test.csv
-        \end{itemize}  
-        \item Kaggle Submissions:
-        \begin{itemize}
-        	\item kaggle\_python\_svm.csv
-			\item kaggle\_python\_random\_forest.csv
-			\item kaggle\_python\_ridge.csv
-			\item kaggle\_python\_xgboost.csv
-			\item kaggle\_python\_lasso.csv
-			\item kaggle\_python\_neural\_network.csv
-			\item kaggle\_python\_ensemble.csv
-        \end{itemize}    	
-	\end{itemize}    
+    \subsection{OS and Programming Language}
+    We have used {\em Ubuntu 16.4} Operating System that runs in Windows 10 through Oracle Virtual Box 5.2. Python 2.7  has been used as the programming language for this project. Data visualizations are done using {\em seaborn} and {\em matplotlib} packages. Most of the algorithms implemented in this project are using {\em sklearn} package. For the neural network algorithm, we have used {\em tensorflow} package as it offers simple programming interface to the complex processing needed by the algorithm. Our code is placed in gitbub repository at {\em  git@github.com:bigdata-i523/hid306.git}. 
+    
+    \subsection{Project Folder Structure}
+    Project is organized in three folders - code, data and images. Code folder has all the python code files. Data folder contains the {\em house pricing} sample datasets provided by Kaggle website for the housing prices competition that we used for the exploratory analysis and {\em sale price} predictions. We also stored all the {\em sale price} prediction output files from various algorithms in the data folder. Images folder contains all the data visualization files that we have created during the analysis and in processing the algorithms. We wanted to create interactive and sharable code files that contain not only the python code but also corresponding explanation along with data visualizations. Jupyter Notebook application is ideal for such facilitation with python code components. Using Jupyter Notebook, it would be easy to share live code with the reviewers. Such environment allows to explore the code-base easily along with the interactive code execution and visualize all the corresponding exploratory analysis results with the graphs.
+    
+    \subsection{Project Files}
+    We have a total of 11 Jupyter Notebook driven python code files. First 4 files are focused on doing the exploratory data analysis and the next 6 files are meant for six supervised machine learning algorithms - SVM, Random Forest, Ridge, Lasso, Neural Network and XGBoost. Last code file is dedicated for ensembling the top 3 algorithms with best predictions of housing sale prices in the test dataset. We have named them in a sequence as there is an implicit order in the execution of these files. We wanted to do the data analysis first before running the predictive algorithms. 
+        
+    \subsection{List of Code Files}    
+    Following is the list of code files:
+    \begin{enumerate}
+    	\item Code: \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/1.1_exploratory_analysis_numerical.ipynb}{1.1\_exploratory\_analysis\_numerical.ipynb} - To load datasets and analyze all numerical variables
+    	
+    	\item Code: \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/1.2_exploratory_analysis_categorical.ipynb}{1.2\_exploratory\_analysis\_categorical.ipynb} - To analyze categorical variables in the dataset
+    	
+    	\item Code: \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/1.3_outlier_and_skewed_data_analysis.ipynb}{1.3\_outlier\_and\_skewed\_data\_analysis.ipynb} - Handles outlier and skewed data analysis
+    	
+    	\item Code: \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/1.4_feature_engineering.ipynb}{1.4\_feature\_engineering.ipynb} - All the feature engineering is done in this file
+    	
+    	\item Code: \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.1_algorithm_svm.ipynb}{2.1\_algorithm\_svm.ipynb} - Implementation of SVM algorithm
+    	
+    	\item Code: \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.2_algorithm_random_forest.ipynb}{2.2\_algorithm\_random\_forest.ipynb} - Implementation of Random Forest algorithm
+    	
+    	\item Code: \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.3_algorithm_ridge.ipynb}{2.3\_algorithm\_ridge.ipynb} - Implementation of Ridge algorithm
+    	
+    	\item Code: \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.4_algorithm_lasso.ipynb}{2.4\_algorithm\_lasso.ipynb} - Implementation of Lasso algorithm
+    	
+    	\item Code: \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.5_algorithm_neural_network_tf.ipynb}{2.5\_algorithm\_neural\_network\_tf.ipynb} - Implementation of Neural Network algorithm
+    	
+    	\item Code: \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.6_algorithm_xgboost.ipynb}{2.6\_algorithm\_xgboost.ipynb} - Implementation of XGBoost algorithm
+    	
+    	\item Code: \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/3_ensemble_kaggle_submission.ipynb}{3\_ensemble\_kaggle\_submission.ipynb} - Implementation of Ensembled algorithm
+    \end{enumerate}    
+    
+     \subsection{List of Data Files}    
+     Following is the list of data files:
+    \begin{enumerate}        
+    	\item Input data file: \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/train.csv}{train.csv} - Sample training dataset with housing attributes along with the sale price
+    	\item input data file: \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/test.csv}{test.csv} - Sample testing dataset similar to training dataset without the sale price
+    	
+       	\item Output data file: \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/kaggle_python_svm.csv}{kaggle\_python\_svm.csv} - Predicted Housing Sale Prices from SVM algorithm
+       	
+		\item Output data file: \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/kaggle_python_random_forest.csv}{kaggle\_python\_random\_forest.csv} - Predicted Housing Sale Prices from Random Forest algorithm
+		
+		\item Output data file: \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/kaggle_python_ridge.csv}{kaggle\_python\_ridge.csv} - Predicted Housing Sale Prices from Ridge algorithm
+		
+		\item Output data file: \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/kaggle_python_xgboost.csv}{kaggle\_python\_xgboost.csv} - Predicted Housing Sale Prices from XGBoost algorithm
+		
+		\item Output data file: \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/kaggle_python_lasso.csv}{kaggle\_python\_lasso.csv} - Predicted Housing Sale Prices from Lasso algorithm
+		
+		\item Output data file: \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/kaggle_python_neural_network.csv}{kaggle\_python\_neural\_network.csv} - Predicted Housing Sale Prices from Neural Network algorithm
+		
+		\item Output data file: \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/kaggle_python_ensemble.csv}{kaggle\_python\_ensemble.csv} - Predicted Housing Sale Prices from Ensembled algorithm    	
+	\end{enumerate}    
    
    
 	\section{Conclusion}
@@ -596,7 +616,8 @@
 	\appendix
 	
 	%Appendix A
-	\section{Kaggle Housing Price Dataset Variables}
+	\section{Sample Dataset File Details}
+	The training and testing sample datasets provided by Kaggle contain the same variables explaining the housing real estate aspects. Training dataset contains the sale price information whereas the testing dataset does not the sale price as that is the target variable we need to predict using supervised machine learning algorithm. Following are the list of variables describing the housing real estate domain. Good understanding of the domain is needed for better exploratory data analysis and to apply the matching machine learning algorithms to the problem space.
 	
 	\begin{itemize}
 	\item Id: Row Id
