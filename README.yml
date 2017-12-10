@@ -46,7 +46,7 @@ project:
         neighborhood housing sale prices found in the sample test dataset.
         Compare the predicted models and results from these advanced
         supervised algorithms. Apply ensembled model to achieve
-        better predictions, hence get good score in kaggle competition.
+        better predictions.
     author:
         - Murali Cheruvu
         - Anand Sriramulu
@@ -54,7 +54,7 @@ project:
     hid:
         - 306
         - 338
-    status: 100%; 12/3/2017
-    title: Predicting Housing Prices - Kaggle Competition
+    status: 98%; 12/10/2017
+    title: Predicting Housing Prices
     type: latex
     url: https://github.com/bigdata-i523/hid306/project
