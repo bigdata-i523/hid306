@@ -41,19 +41,19 @@ paper2:
 project:
     review: Dec 4 2017
     abstract: >
-        In United States, more than 6 million residential homes sold 
-        in 2017. With ever-increasing demands, real estate is 
-        challenged with complex analysis of homes to 
-        provide accurate appraisals and predicting market 
-        fluctuations to react accordingly. Big data analytics 
-        helps mining the real estate data to provide valuable 
-        business insights. In this project, we have planned to 
-        analyze housing data to predict sale prices. Using well 
-        established datasets, with lots of exploratory variables, 
-        we could apply thorough exploration of the data, feature 
-        engineering and implement various advanced supervised 
-        learning algorithms, such as XGoost, Ridge, Lasso, 
-        Random Forest and Neural Network to 
+        In United States, more than 6 million residential homes sold
+        in 2017. With ever-increasing demands, real estate is
+        challenged with complex analysis of homes to
+        provide accurate appraisals and predicting market
+        fluctuations to react accordingly. Big data analytics
+        helps mining the real estate data to provide valuable
+        business insights. In this project, we have planned to
+        analyze housing data to predict sale prices. Using well
+        established datasets, with lots of exploratory variables,
+        we could apply thorough exploration of the data, feature
+        engineering and implement various advanced supervised
+        learning algorithms, such as XGoost, Ridge, Lasso,
+        Random Forest and Neural Network to
         predict accurate sale prices.
     author:
         - Murali Cheruvu
