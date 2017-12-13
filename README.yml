@@ -62,7 +62,7 @@ project:
     hid:
         - 306
         - 338
-    status: 98%; 12/10/2017
+    status: 100%; 12/10/2017
     title: Predicting Housing Prices
     type: latex
     url: https://github.com/bigdata-i523/hid306/project
