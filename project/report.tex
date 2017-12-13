@@ -3,7 +3,7 @@
 \input{format/i523}
 
 \begin{document}
-		
+	
 	\title{Predicting Housing Prices}	
 	
 	\author{Murali Cheruvu, Anand Sriramulu}
@@ -19,47 +19,49 @@
 	
 	% The default list of authors is too long for headers}
 	\renewcommand{\shortauthors}{M. Cheruvu, A Sriramulu}
-		
+	
 	\begin{abstract}
 		
-	In United States, more than 6 million residential homes sold in 2017. With ever-increasing demands, real estate is challenged with complex analysis of homes to provide accurate appraisals and predicting market fluctuations to react accordingly. Big data analytics helps mining the real estate data to provide valuable business insights. In this project, we have planned to analyze housing data to predict sale prices. Using well established datasets, with lots of exploratory variables, we could apply thorough exploration of the data, feature engineering and implement various advanced supervised learning algorithms, such as XGoost, Ridge, Lasso, Random Forest and Neural Network to predict accurate sale prices. 
-      	
+		In United States, more than 6 million residential homes sold in 2017. With ever-increasing demands, real estate is challenged with complex analysis of homes to provide accurate appraisals and predicting market fluctuations to react accordingly. Big data analytics helps mining the real estate data to provide valuable business insights. In this project, we have planned to analyze housing data to predict sale prices. Using well established datasets, with lots of exploratory variables, we could apply thorough exploration of the data, feature engineering and implement various advanced supervised learning algorithms, such as XGoost, Ridge, Lasso, Random Forest and Neural Network to predict accurate sale prices. 
+		
 	\end{abstract}
 	
 	\keywords{i523, hid306, Exploratory Data Analysis, Supervised Learning Algorithms, Ensemble Modeling}
 	
 	\maketitle	
-
+	
 	\section{Introduction} 
 	
 	Real estate, with \$235 million dollar yearly revenue, is a continued growing industry in United States. With more than 200,000 residential and commercial brokerage firms, there are millions houses getting sold every year ~\cite{Rands2017}. In recent times, Big Data has changed the way real estate is getting operated and bringing the importance of data analysis to become major factor in the decision making process. The goal of our project is to predict the sale prices of residential homes listed in the test dataset as accurately as possible. Training dataset contains sale price of the homes, and using this training data set, how accurately we can predict sale prices  of the homes in the test dataset by applying data preprocessing and thorough data analysis. In this project, we have applied various exploratory analysis techniques and engineer the features before applying a few advanced supervised learning algorithms such as SVM, XGoost, Ridge, Lasso, Random Forest and Neural Network, to create more accurately predicted models. 		
-
+	
 	\section{Housing Data Analytics}
 	
 	Traditional real estate forced buyers to have physical presence to see the homes and meet the realtors. Analyzing the sale price was challenging and require extensive understanding of the neighborhood; highly depend on knowledge of the  realtor about recent homes being sold in the surroundings. Assessing the sale price is a daunting task even with a good understanding of the features of any specific home.	The true value of mining the real estate data and analyzing it lies in making context-aware relevant data and converting the result to enterprise-grade, tangible and {\em actionable} business insights. In this project, we would like to predict {\em sale prices} of housing prices using two datasets - training and testing, each with 79 exploratory variables describing almost every aspect of residential homes in city of Ames, Iowa state. However, the datasets, we have got, are snapshots taken in 2010. As a result, these datasets may not reflect the latest trends in the housing sale prices but the analytical approaches taken in this project are generic and can easily be applied to newer datasets. The key to achieve this lies in getting better handle on the housing data and the trends in sale patterns. With proper housing analytics, not only the realtors get benefit in getting predicted appraisals but also help buyers analyze houses with accurate sale prices within their budget. Machine Learning is empowered with all the capabilities to analyze and provide in depth business insights. Interconnectivity between the economy and housing prices is vital motivating factor in doing this project. 
 	
-	Big Data is defined by {\em four Vs}: volume, variety, velocity and veracity ~\cite{big-data}. (a) Volume: Millions of houses that are in the market for sales will generate high volumes of data. (b) Variety: Housing data comes in various formats: structured, semi-structured and unstructured. Structured data usually come from standard datasets collected at various sources. Video and housing pictures are examples of unstructured data. Traditional relational databases (RDBMSs) will not be suitable for scale out distributed processing to handle such volume and variety. Alternatives like {\em Hadoop ecosystem}, with Distributed File System, Map, Reduce, etc. aspects, allows complex data processing. (c) Velocity: Data can come in batches, near-real time and real-time. During the housing sale seasons, there will be very high velocity in getting the housing details and the sale transactional data. (d) Veracity: Housing datasets are going to have lots of noise and outlier data. Data mining will address these concerns using {\em data cleansing} and {\em normalization} techniques. Various types of analytics can be done using machine learning algorithms and data visualizations to see the classification and predicting model patterns. Typical Big Data analytics include: descriptive, diagnostic, prescriptive and predictive. We will apply predictive analytics in this project, to model the predictions of the {\em sale prices}.
-        
-    The real estate industry is tied with Big Data in many ways. Various real estate servicing companies providing advanced insights to buyers and realtors using big data analytics. These companies collect various types of high volume data, such as geographic, census and housing data for rent and sale. Just by using zip code or neighborhood information, one can easily analyze and get the information around potential value of neighborhood properties and trends in the sale. Real estate analytics can tap into {\em smart cities} data to provide in depth analysis of neighborhood health conditions and energy efficiencies. Banks are using big data sources to analyze and set the prices of foreclosure or short sales in the given neighborhood than offering some lower price which may not correlate with the surrounding similar homes ~\cite{james-2017}. Big data analytics is going to drive various housing aspects including: buyer identification, accurate pricing and geographic targets ~\cite{athena-snow-2017} along with connecting national and local real estate agents. Social networking datasets can help linking the buyers and sellers ~\cite{young-2017}. 
-
+	Big Data is defined by {\em four Vs}: volume, variety, velocity and veracity ~\cite{big-data}. (a) Volume: Millions of houses that are in the market for sales will generate high volumes of data. (b) Variety: Housing data comes in various formats: structured, semi-structured and unstructured. Structured data usually come from standard datasets collected at various sources. Video and housing pictures are examples of unstructured data. Traditional relational databases (RDBMSs) will not be suitable for scale out distributed processing to handle such volume and variety. Alternatives like {\em Hadoop ecosystem}, with Distributed File System, Map, Reduce, etc. aspects, allows complex data processing. (c) Velocity: Data can come in batches, near-real time and real-time. During the housing sale seasons, there will be very high velocity in getting the housing details and the sale transactional data. (d) Veracity: Housing datasets are going to have lots of noise and outlier data. Data mining will address these concerns using {\em data cleansing} and {\em normalization} techniques. Various types of analytics can be done using machine learning algorithms and data visualizations to see the classification and predicting model patterns. 
+	
+	Big Data Analytics, in the context of real estate, mainly refers to various analytical activities including population growth,  buyer and seller profile matching and neighborhood public schools, using statistical tools and techniques with business acumen to explore hidden information from the available public data across United States. It applies data mining and machine learning algorithms to volume of data coming from multiple sources with various types of data formats. Typical data analytics work-flow include: gathering structured and unstructured data, cleaning the data before modeling, evaluating and visualizing to make them usable for business decisions. Data modeling is, the heart of analytics, to better understand, quantify using statistical algorithms and then visualize the model to comply to the business context. Exploratory data analysis and predictive analytics are two major groups of tasks in the data modeling. Exploratory data analysis uses various techniques to provide useful textual and visual summaries of the characteristics of the data. Predictive analytics focuses on classification and numerical regression tasks. We will apply predictive analytics in this project, to model the predictions of the {\em sale prices}.
+	
+	The real estate industry is tied with Big Data in many ways. Various real estate servicing companies providing advanced insights to buyers and realtors using big data analytics. These companies collect various types of high volume data, such as geographic, census and housing data for rent and sale. Just by using zip code or neighborhood information, one can easily analyze and get the information around potential value of neighborhood properties and trends in the sale. Real estate analytics can tap into {\em smart cities} data to provide in depth analysis of neighborhood health conditions and energy efficiencies. Banks are using big data sources to analyze and set the prices of foreclosure or short sales in the given neighborhood than offering some lower price which may not correlate with the surrounding similar homes ~\cite{james-2017}. Big data analytics is going to drive various housing aspects including: buyer identification, accurate pricing and geographic targets ~\cite{athena-snow-2017} along with connecting national and local real estate agents. Social networking datasets can help linking the buyers and sellers ~\cite{young-2017}. 
+	
 	\section{Domain Knowledge}
-	 To predict accurate {\em sale price}, we will need to understand the domain well. We need to build the intuition around all the exploratory variables in the dataset and focus on which factors could influence the target variable: {\em sale price}. If we do not find all these factors, perhaps, we need to add new features to address the gaps in dataset describing the domain. Some of the factors which, we think, can directly influence house prices are:
-	 
-	 \begin{itemize}
-	 	\item What is the overall Size or area of the house?
-	 	\item How good is the location of the house - closer to highways?
-	 	\item How good is the neighborhood?
-	 	\item How old is the house?
-	 	\item What is the quality of the construction?
-	 	\item How many garages are there in the house?
-	 	\item What are the floor plans?
-	 	\item How many number of bedrooms are there in the house?
-	 	\item How many number of bathrooms are there in the house?
-	 	\item What is the size of living area?
-	 \end{itemize}
+	To predict accurate {\em sale price}, we will need to understand the domain well. We need to build the intuition around all the exploratory variables in the dataset and focus on which factors could influence the target variable: {\em sale price}. If we do not find all these factors, perhaps, we need to add new features to address the gaps in dataset describing the domain. Some of the factors which, we think, can directly influence house prices are:
+	
+	\begin{itemize}
+		\item What is the overall Size or area of the house?
+		\item How good is the location of the house - closer to highways?
+		\item How good is the neighborhood?
+		\item How old is the house?
+		\item What is the quality of the construction?
+		\item How many garages are there in the house?
+		\item What are the floor plans?
+		\item How many number of bedrooms are there in the house?
+		\item How many number of bathrooms are there in the house?
+		\item What is the size of living area?
+	\end{itemize}
 	
 	\section{Exploratory Data Analysis} 
-		
+	
 	We can start the process with exploratory data analysis. There are 1460 rows in the training data set and 1459 rows in the test dataset. Out of the 80 variables, 23 are nominal, 23 are ordinal, 14 are discrete, and 20 are continuous. The nominal variables are related to material, garage, dwelling, and environmental conditions. All the 20 continuous variables are related to the area dimensions. The ordinal variables rate various items within the property. The home listing includes only few quantified variables like typical lot size and total dwelling square footage, but this data set has more specific variables. There are  individual category variables derived from basement, main living area and porch based on quality and type.  We have combined training and testing datasets for easier analysis. We excluded Id attribute as it does not add value in the modeling. We also removed Sale Price, the target variable, from the training dataset. All the variables are listed in the appendix section as a reference. We applied univariate, bivariate and multivariate analytical techniques to analyze numerical and categorical variables. Various statistical and data visualizations were applied on each type of variable. The primary goal of exploratory data analysis is to amplify the insights of analysts onto given input dataset to analyze the aspects, such as:
 	
 	\begin{itemize}
@@ -69,23 +71,23 @@
 		\item Feature engineering and ranking
 		\item Algorithm selection and tuning for optimal predictions
 	\end{itemize}
-		
+	
 	\subsection{Analyze Missing Values}
 	
 	First part of the analysis was to check for any missing values in the training and testing datasets as shown in Figure (\ref{c:check-nulls}). Using the bar plot shown in Figure (\ref{fig:missing-values}), we have identified that there are 5 variables: {\em pool quality}, {\em miscellaneous features}, {\em alley}, {\em fence} and {\em fire place quality}, having the most missing data. 	
 	
 	\begin{figure}[htb]
-	\begin{verbatim}		
-	# python code - check for null values
-	train = pd.read_csv('../data/train.csv')
-	test = pd.read_csv('../data/test.csv')
+		\begin{verbatim}		
+		# python code - check for null values
+		train = pd.read_csv('../data/train.csv')
+		test = pd.read_csv('../data/test.csv')
 		
-	#combine the data sets
-	alldata = train.append(test)	
-	na = alldata.isnull().sum()
-	           .sort_values(ascending=False)
-	\end{verbatim}
-	\caption{Code - Null Checks}\label{c:check-nulls}
+		#combine the data sets
+		alldata = train.append(test)	
+		na = alldata.isnull().sum()
+		.sort_values(ascending=False)
+		\end{verbatim}
+		\caption{Code - Null Checks}\label{c:check-nulls}
 	\end{figure}
 	
 	\begin{figure}[htb]
@@ -93,7 +95,7 @@
 		\includegraphics[width=1.0\columnwidth]{images/missing_values}	
 		\caption{Graph - Missing Values} \label{fig:missing-values} 
 	\end{figure}
-
+	
 	All the missed values of numeric variables are analyzed further to decide whether we need to delete the instances of all the data with missing values or impute them with something meaningful. There are various ways to find the estimate to replace the missing value including:  
 	
 	\begin{itemize}
@@ -101,101 +103,101 @@
 		\item Regression: Some predicted value by regressing missing variable on all the other variables
 		\item Interpolation and extrapolation: An estimated value from other observations of the same variable
 	\end{itemize}
-    
+	
 	\subsection{Analyze Numerical Variables}
-    There are 37 numerical variables after excluding the {\em Id} variable. List of numerical variables are: MS-Sub-Class, Lot-Frontage, Lot-Area, Overall-Qual, Overall-Cond, Year-Built, Year-Remod-Add, Mas-Vnr-Area, Bsmt-Fin-SF1, Bsmt-Fin-SF2, Bsmt-Unf-SF, Total-Bsmt-SF, 1st-Flr-SF, 2nd-Flr-SF, Low-Qual-Fin-SF, Gr-Liv-Area, Bsmt-Full-Bath, Bsmt-Half-Bath, Full-Bath, Half-Bath, Bedroom-Abv-Gr, Kitchen-Abv-Gr, Tot-Rms-Abv-Grd, Fireplaces, Garage-Yr-Blt, Garage-Cars, Garage-Area, WoodDeck-SF, Open-Porch-SF, Enclosed-Porch, 3Ssn-Porch, Screen-Porch, Pool-Area, Misc-Val, Mo-Sold, Yr-Sold and Sale-Price. {\em Interval} and {\em ratio} are the two types of numerical variables we encounter in most of the data analytical applications. Statistical aspects of the numerical univariate analysis include: count, minimum, maximum, mean, median, mode, quantile, range, variance, standard deviation and skewness. Data visualization techniques, such as histogram, box plot and scatter plot are used to analyze the numerical variables. We have shown {\em sale price}, {\em overall quality}, {\em garage live area} and {\em year built}, in the Figures (\ref{fig:num-feature-1}) and (\ref{fig:num_features_2}) as a few sample plots from the numerical analysis. Corresponding code snippet is shown in Figure (\ref{c:analyze-numeric}).
+	There are 37 numerical variables after excluding the {\em Id} variable. List of numerical variables are: MS-Sub-Class, Lot-Frontage, Lot-Area, Overall-Qual, Overall-Cond, Year-Built, Year-Remod-Add, Mas-Vnr-Area, Bsmt-Fin-SF1, Bsmt-Fin-SF2, Bsmt-Unf-SF, Total-Bsmt-SF, 1st-Flr-SF, 2nd-Flr-SF, Low-Qual-Fin-SF, Gr-Liv-Area, Bsmt-Full-Bath, Bsmt-Half-Bath, Full-Bath, Half-Bath, Bedroom-Abv-Gr, Kitchen-Abv-Gr, Tot-Rms-Abv-Grd, Fireplaces, Garage-Yr-Blt, Garage-Cars, Garage-Area, WoodDeck-SF, Open-Porch-SF, Enclosed-Porch, 3Ssn-Porch, Screen-Porch, Pool-Area, Misc-Val, Mo-Sold, Yr-Sold and Sale-Price. {\em Interval} and {\em ratio} are the two types of numerical variables we encounter in most of the data analytical applications. Statistical aspects of the numerical univariate analysis include: count, minimum, maximum, mean, median, mode, quantile, range, variance, standard deviation and skewness. Data visualization techniques, such as histogram, box plot and scatter plot are used to analyze the numerical variables. We have shown {\em sale price}, {\em overall quality}, {\em garage live area} and {\em year built}, in the Figures (\ref{fig:num-feature-1}) and (\ref{fig:num_features_2}) as a few sample plots from the numerical analysis. Corresponding code snippet is shown in Figure (\ref{c:analyze-numeric}).
 	
 	\begin{figure}[htb]
-	\begin{verbatim}
-	# python code - analyze numeric variables
-	numerical_features = [f for f in train.columns 
-						if train.dtypes[f] != object]
-	
-	nd = pd.melt(train, value_vars = numerical_features)	
-	plt.figure(figsize = (5,3))
-	plot = sns.FacetGrid (nd, col=variable, col_wrap=4,
-	                 sharex=False, sharey = False)
-	plot = plot.map(sns.distplot, value)				
-	\end{verbatim}
-	\caption{Code - Numerical Analysis}\label{c:analyze-numeric}
+		\begin{verbatim}
+		# python code - analyze numeric variables
+		numerical_features = [f for f in train.columns 
+		if train.dtypes[f] != object]
+		
+		nd = pd.melt(train, value_vars = numerical_features)	
+		plt.figure(figsize = (5,3))
+		plot = sns.FacetGrid (nd, col=variable, col_wrap=4,
+		sharex=False, sharey = False)
+		plot = plot.map(sns.distplot, value)				
+		\end{verbatim}
+		\caption{Code - Numerical Analysis}\label{c:analyze-numeric}
 	\end{figure}
-
+	
 	
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=1.0\columnwidth]{images/num_features_1}	
 		\caption{Graph - Sale Price and Overall Quality}\label{fig:num-feature-1}		
 	\end{figure}
-
+	
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=1.0\columnwidth]{images/num_features_2}	
 		\caption{Graph - Ground Live Area and Year Built} \label{fig:num_features_2} 
 	\end{figure}
-
+	
 	\subsection{Analyze Categorical Variables}
 	There are 43 categorical variables in the combined dataset. List of categorical variables are: MS-Zoning, Street, Alley, Lot-Shape, Land-Contour, Utilities, Lot-Config, Land-Slope, Neighborhood, Condition1, Condition2, Bldg-Type, House-Style, Roof-Style, Roof-Matl, Exterior-1st, Exterior-2nd, Mas-Vnr-Type, Exter-Qual, Exter-Cond, Foundation, Bsmt-Qual, Bsmt-Cond, Bsmt-Exposure, Bsmt-Fin-Type1, Bsmt-Fin-Type2, Heating, Heating-QC, Central-Air, Electrical, Kitchen-Qual, Functional, Fireplace-Qu, Garage-Type, Garage-Finish, Garage-Qual, Garage-Cond, Paved-Drive, Pool-QC, Fence, Misc-Feature, Sale-Type and Sale-Condition. We have analyzed all categorical variables and found the ways to fill the missing values. We has also evaluated proper approaches to convert them into numerical factors. Bar and pie charts are used to visualize categorical variables. Later on in the feature engineering section, we will go through more details on numerical factors. Categorical variable factors and the corresponding code snippet for {\em neighborhood} and {\em sale type} are shown in Figure (\ref{c:analyze-cat}) and Figures (\ref{fig:cat_features_1}).
 	
 	\begin{figure}[htb]
-	\begin{verbatim}	
-	# python code - analyze numeric variables
-	cat_features = [f for f in train.columns 
-			if train.dtypes[f] == object]
-	print(cat_features)
-	
-	plt.figure(figsize = (5,3))
-	
-	p = pd.melt(train, id_vars=SalePrice,
-	             value_vars=cat_features)
-	             
-	g = sns.FacetGrid (p, col=variable, col_wrap=4, 
-	sharex=False, sharey=False, size=5)
-	
-	g = g.map(barplot, value,SalePrice)				
-	\end{verbatim}
-	\caption{Code - Categorical Analysis} \label{c:analyze-cat} 
+		\begin{verbatim}	
+		# python code - analyze numeric variables
+		cat_features = [f for f in train.columns 
+		if train.dtypes[f] == object]
+		print(cat_features)
+		
+		plt.figure(figsize = (5,3))
+		
+		p = pd.melt(train, id_vars=SalePrice,
+		value_vars=cat_features)
+		
+		g = sns.FacetGrid (p, col=variable, col_wrap=4, 
+		sharex=False, sharey=False, size=5)
+		
+		g = g.map(barplot, value,SalePrice)				
+		\end{verbatim}
+		\caption{Code - Categorical Analysis} \label{c:analyze-cat} 
 	\end{figure}
-
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=1.0\columnwidth]{images/cat_features_1}	
-	\caption{Graph - Neighborhood and Sale Type} \label{fig:cat_features_1} 
-\end{figure}
+	
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=1.0\columnwidth]{images/cat_features_1}	
+		\caption{Graph - Neighborhood and Sale Type} \label{fig:cat_features_1} 
+	\end{figure}
 	
 	\subsection{Analyze Correlations}		
 	{\em Numpy} package offers correlations functionality to analyze the variables that are positively or negatively correlated with the {\em sale price} and also analyze any interdependencies among the variables. Figure (\ref{c:cor}) and (\ref{fig:correlations}) shows the code snippet and the correlations plot. From that we can list the top 10 features those are strongly correlated with the target variable - {\em sale price}. We can visualize a few pair-wise correlation graphs with sale price for further detailed analysis. Figures (\ref{fig:pair-wise-correlations}) and (\ref{fig:pair-wise-correlations-2}) show how {\em overall quality}, {\em ground live area}, {\em garage cars} and {\em garage area} are positively correlated with {\em sale price}.
 	
 	\begin{figure}[htb]
-	\begin{verbatim}	
-	# python code 
-	corr = alldata[numerical_features].corr()	
-	mask = np.zeros_like(corr)
-	mask[np.triu_indices_from(mask)] = True	
-	plt.figure(figsize = (15,8))	
-	sns_plot = sns.heatmap(corr, cmap=YlGnBu, 
-	               linewidths=.5,  mask=mask, vmax=.3)	
-	\end{verbatim}
-	\caption{Code - Correlations} \label{c:cor} 
+		\begin{verbatim}	
+		# python code 
+		corr = alldata[numerical_features].corr()	
+		mask = np.zeros_like(corr)
+		mask[np.triu_indices_from(mask)] = True	
+		plt.figure(figsize = (15,8))	
+		sns_plot = sns.heatmap(corr, cmap=YlGnBu, 
+		linewidths=.5,  mask=mask, vmax=.3)	
+		\end{verbatim}
+		\caption{Code - Correlations} \label{c:cor} 
 	\end{figure}
-
+	
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=1.0\columnwidth]{images/correlations}	
 		\caption{Graph - Correlations with Sale Price} \label{fig:correlations} 
 	\end{figure}
-		
+	
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=1.0\columnwidth]{images/pair_wise_correlations_1}	
 		\caption{Graph - Overall Quality and Ground Live Area} \label{fig:pair-wise-correlations} 
 	\end{figure}
-
+	
 	\begin{figure}[htb]
-	\centering
-	\includegraphics[width=1.0\columnwidth]{images/pair_wise_correlations_2}	
-	\caption{Graph - Garage Cars and Garage Area} \label{fig:pair-wise-correlations-2} 
+		\centering
+		\includegraphics[width=1.0\columnwidth]{images/pair_wise_correlations_2}	
+		\caption{Graph - Garage Cars and Garage Area} \label{fig:pair-wise-correlations-2} 
 	\end{figure}
-
+	
 	\begin{enumerate}
 		\item OverallQual: Overall material and finish quality
 		\item GrLivArea: Above ground living area square feet
@@ -208,7 +210,7 @@
 		\item YearBuilt: Original construction date
 		\item GarageYrBlt: Garage built year		
 	\end{enumerate}
-
+	
 	\subsection{Skewed Data Analysis}
 	From the numerical analysis, we have identified that there are a few numerical variables need further analysis to identify the skewed data. We did not find any key variables those have skewed more than 75\%. However, we wanted to replace the {\em sale price} with corresponding logarithmic value for the predictive models and later convert it back to the exponential value before saving the predictions. Figure (\ref{fig:sale-price-skew}) shows the {\em sale price}, before and after applying the logarithmic value. 
 	
@@ -217,44 +219,44 @@
 		\includegraphics[width=1.0\columnwidth]{images/sale_price_skew}	
 		\caption{Graph - Sale Price skewness} \label{fig:sale-price-skew} 
 	\end{figure}
-
+	
 	\subsection{Outlier Analysis}
 	
 	Continuing with exploratory analysis, we have analyzed the outliers using {\em Cooks distance}. Cooks distance is a measure calculated from a regression model to find out the influence exerted by each observation (row) on the predictions. As a practice,  those observations that have a Cooks distance greater than 4 times the mean value may be classified as an outlier. Outlier detection can be done using univariate and multivariate analysis. In univariate model, the outliers are those observations that are present outside of 1.5 * IQR, where IQR ({\em Inter Quartile Range}) is the difference between 75th and 25th quartiles. Analyzing outliers in any observations based on single variable may lead to incorrect inferences. Cooks distance generalizes the outlier analysis using multivariate approach \cite{1}. Figure (\ref{c:code-outliers}) is the code implementing Cooks distance to find the outliers from training dataset and Figure (\ref{fig:outliers}) shows the scatter plot with outliers being marked as bubbles. The bigger the bubbles, the bigger outlier deviations from the mean value. We have further analyzed two key variables - {\em ground live area} and {\em garage area} that are in high correlation with the {\em sale price}. From the scatter plot shown in Figure (\ref{fig:gr-liv-area-outlier}), we can see that {\em garage live area} has 4 outliers with values greater than 4,000 sq ft. We can also visualize 4 outliers in {\em garage area} scatter plot with values greater than 1,200 sq ft. as shown in Figure (\ref{fig:garage-area-outlier}).  We have removed the 8 outlier rows related to these two variables from the training dataset, the corresponding code snippet shown in Figure (\ref{c:code-del-outliers}).
 	
 	\begin{figure}[htb]		
-	\begin{verbatim}	
-	# python code - outlier analysis
-	import statsmodels.api as sm
-	from statsmodels.formula.api import ols
-	
-	model = ols(formula = SalePrice ~ 
-								GrLivArea + GarageArea, data=train)
-	fitted = model.fit()    	
-	plot = sm.graphics.influence_plot(fitted, 
-							criterion=cooks)		
-	\end{verbatim}
-	\caption{Code - Outlier Analysis} \label{c:code-outliers} 
+		\begin{verbatim}	
+		# python code - outlier analysis
+		import statsmodels.api as sm
+		from statsmodels.formula.api import ols
+		
+		model = ols(formula = SalePrice ~ 
+		GrLivArea + GarageArea, data=train)
+		fitted = model.fit()    	
+		plot = sm.graphics.influence_plot(fitted, 
+		criterion=cooks)		
+		\end{verbatim}
+		\caption{Code - Outlier Analysis} \label{c:code-outliers} 
 	\end{figure}
-
+	
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=1.0\columnwidth]{images/outliers}	
 		\caption{Graph - Outliers using Cooks distance} \label{fig:outliers} 
 	\end{figure}
-		
+	
 	\begin{figure}[htb]
-	\centering
-	\includegraphics[width=1.0\columnwidth]{images/gr_liv_area_outlier}	
-	\caption{Graph - Garage Live Area Outliers} \label{fig:gr-liv-area-outlier} 
+		\centering
+		\includegraphics[width=1.0\columnwidth]{images/gr_liv_area_outlier}	
+		\caption{Graph - Garage Live Area Outliers} \label{fig:gr-liv-area-outlier} 
 	\end{figure}
-
+	
 	\begin{figure}[htb]
-	\centering
-	\includegraphics[width=1.0\columnwidth]{images/garage_area_outlier}	
-	\caption{Graph - Garage Area Outliers} \label{fig:garage-area-outlier} 
+		\centering
+		\includegraphics[width=1.0\columnwidth]{images/garage_area_outlier}	
+		\caption{Graph - Garage Area Outliers} \label{fig:garage-area-outlier} 
 	\end{figure}
-
+	
 	\begin{figure}[htb]				
 		\begin{verbatim}	
 		# python code - remove outlier rows
@@ -265,43 +267,43 @@
 		\end{verbatim}
 		\caption{Code - Delete Outliers} \label{c:code-del-outliers} 
 	\end{figure}
-
+	
 	\subsection{Feature Engineering}
 	
 	Feature engineering is a technique to analyze all the variables those influence target variable for better predictions. Part of feature engineering, we may need to create new features to make the data to be more expressive. One of the key intents, in analyzing categorical variables, is to convert them into numerical factors as most of the machine learning algorithms expect all the variables to be numeric for them to work more effectively. Feature engineering is a difficult task; majority of the effort is manual and requires lots of domain knowledge.
 	
 	\subsubsection{Numerical Encoding}
-	 Some of the categorical variables are ordinal. we can use T-shirt sizes: small, medium and large as an example to explain an ordinal variable. When we convert this category variable into numeric encoding, we need to retain the fact that there is an implicit order within the values. Supposing, we give ordinal encoding as - small = 1, medium = 2 and large = 3; we will satisfy the implicit order or weightage and that helps in modeling the system by elevating the importance of this implicit ordering in the values of the ordinal variable.There are a few other encoding techniques, such as one-hot, binary, polynomial and helmert to factorize categorical variables. We will use ordinal and one-hot encoding techniques for this dataset. Following are a few categorical variables converted to numerical:
+	Some of the categorical variables are ordinal. we can use T-shirt sizes: small, medium and large as an example to explain an ordinal variable. When we convert this category variable into numeric encoding, we need to retain the fact that there is an implicit order within the values. Supposing, we give ordinal encoding as - small = 1, medium = 2 and large = 3; we will satisfy the implicit order or weightage and that helps in modeling the system by elevating the importance of this implicit ordering in the values of the ordinal variable.There are a few other encoding techniques, such as one-hot, binary, polynomial and helmert to factorize categorical variables. We will use ordinal and one-hot encoding techniques for this dataset. Following are a few categorical variables converted to numerical:
 	
 	\begin{itemize}
 		\item {\em Lot shape} is encoded as: 1 - regular, 2 - Irregular-I, 3 - Irregular-II, 4 - Irregular-III
-		 \item {\em Alley} is encoded as: 1 - none, 2 - gravel, 3 - paved
-		 \item All quality variables such as {\em garage quality} are encoded as: 0 - none, 1 - poor, 2 - fair 3 - typical 4 - good, 5 - excellent
-		 \item {\em Building type} is encoded as: 1 - single-family, 2 - two-family, 3 - duplex, 4 - townhouse end unit, 5 - townhouse inside unit
-		 \item {\em Overall quality} is encoded as: 1 to 3 - bad, 4 to 6 - average, 7 to 10 - good		 
-		 
+		\item {\em Alley} is encoded as: 1 - none, 2 - gravel, 3 - paved
+		\item All quality variables such as {\em garage quality} are encoded as: 0 - none, 1 - poor, 2 - fair 3 - typical 4 - good, 5 - excellent
+		\item {\em Building type} is encoded as: 1 - single-family, 2 - two-family, 3 - duplex, 4 - townhouse end unit, 5 - townhouse inside unit
+		\item {\em Overall quality} is encoded as: 1 to 3 - bad, 4 to 6 - average, 7 to 10 - good		 
+		
 	\end{itemize}
-
+	
 	\subsubsection{One-hot Encoding}
-	 One-hot encoding converts the category variable into many binary vectors, one new numeric variable for each value in the category. Assume that we have a categorical variable called signal-light with three possible values: green, yellow and red. We will need to convert these values into numeric - green = 1, yellow = 2 and red = 3. When we apply one-hot encoding on this variable, basically we are creating three new categorical variables - signal-light-green, signal-light-yellow and signal-light-red along with the original variable - signal-light, each is pretty much a binary vector having 1s for all the corresponding values; otherwise 0s. With hot-encoding, we are basically increasing dimensions in the model. After extensive feature engineering applied on the housing dataset, we have added {\em 228} new features (variables). Figure (\ref{c:code-one-hot}) shows the python methods to factorize categorical variables using one-hot encoding techniques. 
+	One-hot encoding converts the category variable into many binary vectors, one new numeric variable for each value in the category. Assume that we have a categorical variable called signal-light with three possible values: green, yellow and red. We will need to convert these values into numeric - green = 1, yellow = 2 and red = 3. When we apply one-hot encoding on this variable, basically we are creating three new categorical variables - signal-light-green, signal-light-yellow and signal-light-red along with the original variable - signal-light, each is pretty much a binary vector having 1s for all the corresponding values; otherwise 0s. With hot-encoding, we are basically increasing dimensions in the model. After extensive feature engineering applied on the housing dataset, we have added {\em 228} new features (variables). Figure (\ref{c:code-one-hot}) shows the python methods to factorize categorical variables using one-hot encoding techniques. 
 	
 	\begin{figure}[htb]	
-	\begin{verbatim}	
-	# python code - factorize and one-hot
-	def get_one_hot(df, col_name, fill_val):
-	  if fill_val is not None:
-	    df[col_name].fillna(fill_val, inplace=True)
-	
-	  dummies = pd.get_dummies(df[col_name], prefix=_ + col_name)
-	  df = df.join(dummies)
-	  df = df.drop([col_name], axis=1)
-	  return df
-	#end def	
-
-	\end{verbatim}
-	\caption{Code - factorize and one-hot encoding} \label{c:code-one-hot} 
+		\begin{verbatim}	
+		# python code - factorize and one-hot
+		def get_one_hot(df, col_name, fill_val):
+		if fill_val is not None:
+		df[col_name].fillna(fill_val, inplace=True)
+		
+		dummies = pd.get_dummies(df[col_name], prefix=_ + col_name)
+		df = df.join(dummies)
+		df = df.drop([col_name], axis=1)
+		return df
+		#end def	
+		
+		\end{verbatim}
+		\caption{Code - factorize and one-hot encoding} \label{c:code-one-hot} 
 	\end{figure}
-
+	
 	\subsubsection{New Features}
 	By adding new features that fill the gaps in domain model, we can guide the model predictions more accurately. We can, easily, create more meaningful new features from existing features, such as:
 	
@@ -315,7 +317,7 @@
 		\item Which season house was last sold in? - This is a calculated value from {\em month build}
 	\end{itemize}
 	
-	 \subsubsection{Handling Null Values}
+	\subsubsection{Handling Null Values}
 	\begin{itemize}
 		\item  LotFrontage: Calculated the median of the LotFrontage grouping by neighborhood and assigned the median value for the homes with null values.
 		\item  Street: Filled null values with {\em Grvl}. 
@@ -335,60 +337,65 @@
 		\item  BsmtFinType2: Filled null values with Mode of this variable
 		\item  PoolQC: There are entries with PoolArea $>$ 0 and PoolQC as NA, so filled the values with average condition - {\em TA}
 	\end{itemize}
-
+	
 	\section{Algorithms and Methodology}
-
-	Linear regression predicts the target variable using best possible straight line fit to the set predictor variables. The best fit is usually the one that minimizes the root mean squared error (RMSE) between the actual and predicted data points. However, with complex problem space such as the housing prices dataset, we have lots of variables relating to the target variable in a non-linear fashion. Trivial supervised learning algorithms will not be effective to provide accurate {\em sale price} predictions. To overcome this challenge, we have applied various advanced supervised learning algorithms, such as Support Vector Machine (SVM), Random Forest, Lasso, Ridge, XGBoost and Neural Network, to predict the test data housing prices. Following are some of the aspects that are common to all the algorithms:
+	
+	Broadly speaking, there are three types of machine learning algorithms: supervised, unsupervised and reinforcement learning. {\em Supervised learning algorithms}: decision trees, linear regression, support vector machines (SVMs), Naive Bayes, neural networks, etc. are popular for classification and regression problems by analyzing labeled training data. K-means clustering algorithms are good for {\em unsupervised} datasets to categorize based on the identified patterns in unlabeled data. While there are so many factors - nature of the domain, sample size of the dataset and number of attributes defining characteristics of the data - decide which machine learning algorithm works better, Deep Learning neural network algorithms are, getting greater traction, addressing complex analytics tasks including high-dimensionality and automatic creation of new features from existing complex hierarchical features, very well. {\em Reinforcement Learning} algorithms focus on how to maximize the learning based on rewards and punishments.
+		
+	Linear regression predicts the target variable using best possible straight line fit to the set predictor variables. The best fit is usually the one that minimizes the root mean squared error (RMSE) between the actual and predicted data points. Logistic regression solves classification problems to predict discrete values based on given training dataset. Simple decision tree algorithms also target solving classification problems. Naive Bayes is also popular for classification type of problems where it assumes independence among the variables. However, with complex problem space such as the housing prices dataset, we have lots of variables relating to the target variable in a non-linear fashion. Trivial supervised learning algorithms will not be effective to provide accurate {\em sale price} predictions. To overcome this challenge, we have applied various advanced supervised learning algorithms, such as Support Vector Machine (SVM), Random Forest, Lasso, Ridge, XGBoost and Neural Network, to predict the test data housing prices. Following are some of the aspects that are common to all the algorithms:
 	
 	\subsection{Underfitting and Overfitting}
 	Underfitting happens when the model is trivial and does not fit the data properly. As a result it is unable to learn the model properly hence gives incorrect predictions. Underfitting suffers from low {\em variance} but high {\em bias} from the predicted model. Variance measures the variation in learning from different training sets.  Variance does not properly filter outliers that are part of the model. Bias prevents generalization beyond the training dataset. Overfitting occurs when the predicted model learns the training dataset including the noise and results negatively impacting the performance and accuracy of the model. Overfitting happens more likely with non-linear and non-parametric algorithms those offer more flexibility. Overfitting, as expected, exhibits low {\em bias} and high {\em variance}. Balancing between bias and variance is a challenge and model may have to compromise one over the other. 
 	
 	\subsection{Cross Validation}
 	
-    Before applying the trained model onto the testing dataset, we need to validate it. Cross-validation is a technique to validate the trained model by partitioning the original training dataset into two parts - training and cross validation datasets. The cross validation dataset is basically to evaluate the trained model before applying on the actual test dataset. Usually 70\% of the original training dataset is kept for training the model and 30\% of it for cross validation. This type of cross validation is called {\em holdout  method}. {\em K-fold cross validation} is more improved and effective cross validation method, where the dataset is divided into {\em k} subsets, and the {\em holdout} method is repeated k times. In each iteration, one of the k subsets is selected as a test dataset and the remaining {\em k-1} subsets will be part of the training dataset. In the end, the average error across all {\em k} attempts is computed.
-	 
+	Before applying the trained model onto the testing dataset, we need to validate it. Cross-validation is a technique to validate the trained model by partitioning the original training dataset into two parts - training and cross validation datasets. The cross validation dataset is basically to evaluate the trained model before applying on the actual test dataset. Usually 70\% of the original training dataset is kept for training the model and 30\% of it for cross validation. This type of cross validation is called {\em holdout  method}. {\em K-fold cross validation} is more improved and effective cross validation method, where the dataset is divided into {\em k} subsets, and the {\em holdout} method is repeated k times. In each iteration, one of the k subsets is selected as a test dataset and the remaining {\em k-1} subsets will be part of the training dataset. In the end, the average error across all {\em k} attempts is computed.
+	
+	\subsection{Model Evaluation}
+	We can use evaluation metrics to check accuracy of the trained model. Accuracy, precision, recall and f-score are typical metrics used to evaluate the classification models. Regression models use mean absolute error (MAE), root mean squared error (RMSE), coefficient of determination and relative scored error (RSE) as metrics to verify the accuracy and performance of the model. MAE evaluates how close the predictions are to the actual target variable, hence a lower score is better. RMSE metric summarizes the error in predicted model. By squaring the error, the over and under predictions are controlled. RSE normalizes the total squared error by diving the total squared error of the actual target variable values. Coefficient of determination represents the prediction as value between 0 and 1; 0 - means the model is random and 1 - means the model is a good fit.
+	
 	\subsection{Support Vector Machine (SVM) Algorithm}
-
+	
 	Support Vector Machine (SVM) algorithms can be used to solve classification and regression problems. SVM creates larger margins between categories of data so that they are linearly separable. SVM regression relies on kernel functions for modeling the data. SVM handles non-linearly separable data, mainly for regression problems, using kernel functions, such as polynomial, radial basis function (RBF) and sigmoid, to project the data onto a hyperplane. Figure (\ref{c:svm}) shows the python implementation for {\em sale price} predictions of the housing test dataset.
 	
 	\begin{figure}[htb]	
-	\begin{verbatim}	
-	# python code - SVM algorithm
-	from sklearn.svm import SVR	
+		\begin{verbatim}	
+		# python code - SVM algorithm
+		from sklearn.svm import SVR	
 		
-	_svm_algo = SVR(kernel = rbf, C=1e3, gamma=1e-8)		
-	_svm_algo.fit(train, target_vector)    
-			
-	y_train = target_vector
-	y_train_pred = _svm_algo.predict(train)
-	
-	#root mean squared error (RMSE)
-	rmse_train = np.sqrt(rmse(y_train,y_train_pred))
-	
-	y_test_pred = _svm_algo.predict(test)	
-	\end{verbatim}
-	\caption{Code - SVM Algorithm} \label{c:svm} 
+		_svm_algo = SVR(kernel = rbf, C=1e3, gamma=1e-8)		
+		_svm_algo.fit(train, target_vector)    
+		
+		y_train = target_vector
+		y_train_pred = _svm_algo.predict(train)
+		
+		#root mean squared error (RMSE)
+		rmse_train = np.sqrt(rmse(y_train,y_train_pred))
+		
+		y_test_pred = _svm_algo.predict(test)	
+		\end{verbatim}
+		\caption{Code - SVM Algorithm} \label{c:svm} 
 	\end{figure}
 	
-    We have used {\em sklearn.svm} package to implement the SVM algorithm in Python. The SVM kernel used, for the {\em sale price} prediction, is {\em radial basis function}. Cost parameter, with a value of {\em 1e3}, is used to increase the margin for better linear separability. Gamma controls the trade-off between error due to bias and variance in the trained model. We have used gamma value as {\em 1e-8}. Once the SVM algorithm is instantiated, we fit the model by passing the training dataset and the {\em sale prices} vector of the training dataset as {\em Y} - target variable. After training the model is done, we checked the {\em root mean squared error} (RMSE) of the trained model predictions with the actuals to make sure the desired accuracy is being met. In this case, RMSE is calculated as 0.2069. Finally we predict the {\em sale price} of test dataset and make sure the sale prices are meaningful.
-        
-	\subsection{Random Forest Algorithm}
-
-    Random Forest is an advanced machine learning algorithm for predictive analytics. Random Forest ensembles multiple decision trees to create an additive learning model from the sequence of base models created by each decision tree that worked on a sub-sample dataset. Random Forest models are suitable to handle tabular datasets with hundreds of numeric and categorical features. Along with missing values, non-linear relations between features and the target, will be handled well by random forest algorithms. With proper tuning of hyper-parameters of the random forest algorithm, it can perform well with decent accuracy in the predictions without overfitting the model. Unlike similar regression models, it does not offer feature coefficient information but it provides {\em feature ranking} functionality very nicely. Figure (\ref{c:rf}) shows the random forest algorithm details for the {\em sale price} predictions implemented using {\em sklearn} package and the Figure (\ref{fig:random-feature-ranking}) shows the top 10 important features selected by random forest to model the predictions.
+	We have used {\em sklearn.svm} package to implement the SVM algorithm in Python. The SVM kernel used, for the {\em sale price} prediction, is {\em radial basis function}. Cost parameter, with a value of {\em 1e3}, is used to increase the margin for better linear separability. Gamma controls the trade-off between error due to bias and variance in the trained model. We have used gamma value as {\em 1e-8}. Once the SVM algorithm is instantiated, we fit the model by passing the training dataset and the {\em sale prices} vector of the training dataset as {\em Y} - target variable. After training the model is done, we checked the {\em root mean squared error} (RMSE) of the trained model predictions with the actuals to make sure the desired accuracy is being met. In this case, RMSE is calculated as 0.2069. Finally we predict the {\em sale price} of test dataset and make sure the sale prices are meaningful.
 	
-		\begin{figure}[htb]
+	\subsection{Random Forest Algorithm}
+	
+	Random Forest is an advanced machine learning algorithm for predictive analytics. Random Forest ensembles multiple decision trees to create an additive learning model from the sequence of base models created by each decision tree that worked on a sub-sample dataset. Random Forest models are suitable to handle tabular datasets with hundreds of numeric and categorical features. Along with missing values, non-linear relations between features and the target, will be handled well by random forest algorithms. By tuning the hyper-parameters of the random forest algorithm, it can perform well with decent accuracy in the predictions without overfitting the model. Random forest uses {\em voting} concept to predict the target variable and selects the highly voted predicted values as the final selected predictions. Unlike similar regression models, it does not offer feature coefficient information but it provides {\em feature ranking} functionality very nicely. Figure (\ref{c:rf}) shows the random forest algorithm details for the {\em sale price} predictions implemented using {\em sklearn} package and the Figure (\ref{fig:random-feature-ranking}) shows the top 10 important features selected by random forest to model the predictions.
+	
+	\begin{figure}[htb]
 		\begin{verbatim}		
 		# python code - random forest algorithm
 		from sklearn.ensemble import RandomForestRegressor		
-				
+		
 		_algo = RandomForestRegressor(n_estimators=100, 
-									oob_score=True, random_state=123456)		
+		oob_score=True, random_state=123456)		
 		model = _algo.fit(train, target_vector)  
 		
 		feat_imp = pd.Series(_algo.feature_importances_, 
-							train.columns).sort_values(ascending=False)							
+		train.columns).sort_values(ascending=False)							
 		feat_imp[:10].plot(kind=bar, 
-								title=Feature Ranmkingt)		
+		title=Feature Ranmkingt)		
 		y_train = target_vector
 		y_train_pred = _algo.predict(train)
 		
@@ -397,39 +404,39 @@
 		y_test_pred = _algo.predict(test)		
 		\end{verbatim}
 		\caption{Code - Random Forest Algorithm} \label{c:rf} 
-		\end{figure}
-
-
+	\end{figure}
+	
+	
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=1.0\columnwidth]{images/random_forest_feature_ranking}	
 		\caption{Graph - Random Forest Feature Ranking} \label{fig:random-feature-ranking} 
 	\end{figure}
-		
+	
 	We have used {\em sklearn.ensemble} and {\em sklearn.metrics} packages to implement random forest algorithm. The hyper-parameters used in this algorithm are: n\_estimators = 100, oob\_score = True and random\_state = 123456. Parameter: {\em n\_estimators} is for the number of trees in the random forest. Parameter: {\em oob\_score} is a boolean to indicate whether to use out-of-bag samples to estimate the generalization accuracy. Parameter: {\em random\_state} is used as seed for the random number generator. Training dataset and the {\em Sale Price} vector are used as input to fit the model and verified the predicted output of the training dataset. The RMSE is calculated as 0.0519. Finished the implementation by predicting the {\em sale price} of the test dataset. 
 	
 	\subsection{Lasso Algorithm}
 	
 	Lasso is a regression model that uses shrinkage to bring data points towards the center, similar to the mean value of all the data points. Lasso stands for Least Absolute Shrinkage and Selection Operator. It is a regularized linear model with penalty term {\em lambda} to minimize the error. Parameter penalization controls overfitting the input data by shrinking variable coefficients to 0. Essentially this makes the variables no effect in the model, hence reduces the dimensions. Figure (\ref{c:lasso}) shows the lasso algorithm implementation for {\em sale price} predictions in python.
-		
-	\begin{figure}[htb]
-	\begin{verbatim}	
-	# python code - lasso algorithm
-	from sklearn.linear_model import Lasso
-		
-	_best_alpha = 0.0001		
-	_lasso_algo = Lasso(alpha = _best_alpha, 
-	                    max_iter = 50000)	
-	model = _lasso_algo.fit(train, target_vector)  
-		
-	y_train = target_vector
-	y_train_pred = _algo.predict(train)
 	
-	#root mean squared error (RMSE)
-	rmse_train = np.sqrt(rmse(y_train,y_train_pred))		
-	y_test_pred = _lasso_algo.predict(test)	
-	\end{verbatim}
-	\caption{Code - Lasso Algorithm} \label{c:lasso} 
+	\begin{figure}[htb]
+		\begin{verbatim}	
+		# python code - lasso algorithm
+		from sklearn.linear_model import Lasso
+		
+		_best_alpha = 0.0001		
+		_lasso_algo = Lasso(alpha = _best_alpha, 
+		max_iter = 50000)	
+		model = _lasso_algo.fit(train, target_vector)  
+		
+		y_train = target_vector
+		y_train_pred = _algo.predict(train)
+		
+		#root mean squared error (RMSE)
+		rmse_train = np.sqrt(rmse(y_train,y_train_pred))		
+		y_test_pred = _lasso_algo.predict(test)	
+		\end{verbatim}
+		\caption{Code - Lasso Algorithm} \label{c:lasso} 
 	\end{figure}
 	
 	We have used {\em sklearn.linear\_model} package to implement lasso algorithm. {\em sklearn.metrics} is used for RMSE calculations. The two key hyper-parameters used in this algorithm are: alpha = 0.0001 and max\_iter = 50000. The parameter: {\em alpha} is used as a constant term that multiplies the L1 term. L1 is explained in the following Ridge Algorithm section. We have given alpha by finding the best value through cross validation. Training data and the {\em sale price} are sent to the {\em fit} method to fit the model. RMSE is calculated as 0.1015 to evaluate the accuracy of the trained model against the {\em sale price} of the training dataset. Finally the algorithm predicted the {\em sale price} of the test dataset.
@@ -437,59 +444,59 @@
 	\subsection{Ridge Algorithm}
 	
 	Ridge algorithm is very similar to lasso algorithm with the same goal. While lasso performs {\em L1 regularization}, ridge applies {\em L2 regularization} techniques in modeling the predictions. L1 regularization adds penalty to the variables equivalent to {\em absolute value of the magnitude} of the coefficients, where as L2 adds the penalty equivalent to {\em square of the magnitude} of the variable coefficients. Figure (\ref{c:ridge}) shows the python implementation of the ridge algorithm for the {\em sale price} predictions. Figures ({\ref{fig:ridge-feature-ranking-pos}}) and (\ref{fig:ridge-feature-ranking-neg}) show the top 10 positively and top 10 negatively influencing variables with {\em sale price}.
-		
+	
 	\begin{figure}[htb]
-	\begin{verbatim}
-	# python code - ridge algorithm
-	from sklearn.linear_model import Ridge
-	#found this best alpha value through cross-validation
-	_best_alpha = 0.00099	
-	_ridge_algo = Ridge(alpha = _best_alpha, 
-	               normalize = True)	               	
-	_ridge_algo.fit(train, target_vector)
+		\begin{verbatim}
+		# python code - ridge algorithm
+		from sklearn.linear_model import Ridge
+		#found this best alpha value through cross-validation
+		_best_alpha = 0.00099	
+		_ridge_algo = Ridge(alpha = _best_alpha, 
+		normalize = True)	               	
+		_ridge_algo.fit(train, target_vector)
 		
-	y_train = target_vector
-	y_train_pred = _ridge_algo.predict(train)
-	
-	#root mean squared error (RMSE)
-	rmse_train = np.sqrt(rmse(y_train,y_train_pred))	
-	
-	y_test_pred = _ridge_algo.predict(test)	
-
-	\end{verbatim}
-	\caption{Code - Ridge Algorithm} \label{c:ridge} 
+		y_train = target_vector
+		y_train_pred = _ridge_algo.predict(train)
+		
+		#root mean squared error (RMSE)
+		rmse_train = np.sqrt(rmse(y_train,y_train_pred))	
+		
+		y_test_pred = _ridge_algo.predict(test)	
+		
+		\end{verbatim}
+		\caption{Code - Ridge Algorithm} \label{c:ridge} 
 	\end{figure}
-		
+	
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=1.0\columnwidth]{images/ridge_feature_ranking_pos}	
 		\caption{Graph - Ridge Top 10 Positive Features} \label{fig:ridge-feature-ranking-pos} 
 	\end{figure}
-
+	
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=1.0\columnwidth]{images/ridge_feature_ranking_neg}	
 		\caption{Graph - Ridge Top 10 Negative Features} \label{fig:ridge-feature-ranking-neg} 
 	\end{figure}
-
-     We have used {\em sklearn.linear\_model} package to implement ridge algorithm. The two key hyper-parameters used in this algorithm are: alpha = 0.00099 and normalize = True. The parameter: {\em alpha} is used  denote the {\em regularization} strength. We have given alpha by finding the best value through cross validation. Parameter: {\em normalize} is used when the value is True to normalize the regressors {\em X} before regression by subtracting the mean and dividing by the L2 norm.  Training data and the {\em sale price} are sent to the {\em fit} method to fit the model. RMSE is calculated as 0.09888 to evaluate the accuracy of the trained model against the {\em sale price} of the training dataset. We have also extracted the top 10 positive and negative features influencing the target variable - {\em sale price}. Finally the algorithm predicted the {\em sale price} of the test dataset. 
-    
+	
+	We have used {\em sklearn.linear\_model} package to implement ridge algorithm. The two key hyper-parameters used in this algorithm are: alpha = 0.00099 and normalize = True. The parameter: {\em alpha} is used  denote the {\em regularization} strength. We have given alpha by finding the best value through cross validation. Parameter: {\em normalize} is used when the value is True to normalize the regressors {\em X} before regression by subtracting the mean and dividing by the L2 norm.  Training data and the {\em sale price} are sent to the {\em fit} method to fit the model. RMSE is calculated as 0.09888 to evaluate the accuracy of the trained model against the {\em sale price} of the training dataset. We have also extracted the top 10 positive and negative features influencing the target variable - {\em sale price}. Finally the algorithm predicted the {\em sale price} of the test dataset. 
+	
 	\subsection{XGB Boosting Algorithm}
+	
+XGBoost (eXtreme Gradient Boosting) is one of the Gradient Boosted Machine algorithms. It ensembles (combines) optimized model by taking trained models from all the preceding iterations. XGBoost regularizes the variables (parameters) using L1 and L2 regularizations to reduce the overfit and can work well with variables having missing values. It is empowered with built-in cross validation to reduce the boosting iterations; hence offers better performance along with parallel processing on multi-core CPU and also can also work with very large datasets in distributed environments. Execution speed and the performance of model creation make XGBoost a very good choice. There are many variations of XGBoost, such as gradient boosting machine, stochastic gradient boosting and additive regression tree, and all of them use gradient descent methods to minimize the loss function. By tuning the XGBoost hyper parameters, we can achieve well optimized model that can make more accurate predictions. XGBoost uses {\em F-Score} to measure the importance of  variables. Our implementation of {\em sale price} predictions using XGBoost is shown in Figure (\ref{c:xgb}). Following list explains the hyper-parameters of XGBoost algorithm.
 
-	XGBoost (eXtreme Gradient Boosting) is one of the Gradient Boosted Machine algorithms. It ensembles (combines) optimized model by taking trained models from all the preceding iterations. XGBoost regularizes the variables (parameters) to reduce the overfit and can work well with variables having missing values. It is empowered with built-in cross validation to reduce the boosting iterations; hence offers better performance along with parallel processing on distributed systems such as Hadoop. By tuning the XGBoost hyper parameters, we can achieve well optimized model that can make more accurate predictions. XGBoost uses {\em F-Score} to measure the importance of  variables and also given the python code, as shown in Figure (\ref{c:xgb}), implementing for {\em sale price} predictions. Figure (\ref{fig:xgb-feature-imp}) shows the top 10 feature selection by the XGBoost. Following list explains the hyper-parameters of XGBoost algorithm.
-	
-	\begin{itemize}
-		\item  Maximum Iterations - Number of trees in the final model. More the trees, more accuracy.
-		\item  Maximum Depth - Depth of each individual tree to control overfitting.
-		\item  Step Size - Shrinkage, works similar to learning rate; smaller value takes more iterations.
-		\item  Column Subsample - Subset of the columns to use in each iteration.
-	\end{itemize}
-	
-	\begin{figure}[htb]
+\begin{itemize}
+	\item  Maximum Iterations - Number of trees in the final model. More the trees, more accuracy.
+	\item  Maximum Depth - Depth of each individual tree to control overfitting.
+	\item  Step Size - Shrinkage, works similar to learning rate; smaller value takes more iterations.
+	\item  Column Subsample - Subset of the columns to use in each iteration.
+\end{itemize}
+
+\begin{figure}[htb]
 	\begin{verbatim}
 	# python code - XGBoost algorithm
 	import xgboost as xgb
-		
+	
 	_xgb_algo = xgb.XGBRegressor(
 	colsample_bytree=0.8,
 	colsample_bylevel = 0.8,
@@ -509,24 +516,26 @@
 	y_test_pred = _xgb_algo.predict(test)	
 	\end{verbatim}
 	\caption{Code - XGBoost Algorithm} \label{c:xgb} 
-	\end{figure}
-	
-	\begin{figure}[htb]
-		\centering
-		\includegraphics[width=1.0\columnwidth]{images/xgboost_feature_importance}	
-		\caption{Graph - XGBoost Feature Importance} \label{fig:xgb-feature-imp} 
-	\end{figure}
+\end{figure}
 
-    We have used {\em xgb} package to implement the XGBoost algorithm. Various hyper-parameters are used to tune the algorithm and a few of them are explained in the above list. The training dataset and the {\em sale price} vector are used to fit the model. XGBoost algorithm gives the list of features that are important in creating the model. We have captured the feature ranking as a graph and evaluated the accuracy of the predictions by calculating RMSE on training dataset itself. Finally, we have predicted the {\em sale prices} of test dataset.
-    
-	\subsection{Neural Network Algorithm}
-	Neural Network is, a {\em directed graph}, organized by layers and layers are created by number of interconnected neurons (or nodes). Every neuron in a layer is connected with all the neurons from previous layer; there will be no interaction of neurons within a layer. The performance of a Neural Network is measured using {\em cost or error function} and the dependent input {\em weight} variables. {\em Forward-propagation} and {\em back-propagation} are two techniques, neural network uses repeatedly until all the input variables are adjusted or calibrated to predict accurate output. During, forward-propagation, information moves in forward direction and passes through all the layers by applying certain weights to the input parameters. {\em Back-propagation} method minimizes the error in the {\em weights} by applying an algorithm called {\em gradient descent} at each iteration step. We have used {\em TensorFlow} python library to predict the {\em sale price} of housing dataset using simple feed-forward neural network. TensorFlow uses {\em tensors}, special multi-dimensional arrays to store the datasets for easier linear algebra and vector calculus operations.
+We have used {\em xgb} package to implement the XGBoost algorithm. Various hyper-parameters are used to tune the algorithm and a few of them are explained in the above list. The training dataset and the {\em sale price} vector are used to fit the model. Top 10 features selected by XGBoost algorithm are: TotalArea, LotArea, GarageArea, All\_Liv\_SF, BsmtUnfSF, 1stFlrSF, BsmtFinSF1, LotFronage, TotalBsmtSF and Age, including the hot-encoded variables and new features created through feature engineering. We have captured the {\em feature ranking} as a graph and evaluated accuracy of the predictions by calculating RMSE on training dataset. Finally, we have predicted {\em sale prices} of the test dataset. Figure (\ref{fig:xgb-feature-imp}) shows the top 10 features selected by the XGBoost. 
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1.0\columnwidth]{images/xgboost_feature_importance2}	
+	\caption{Graph - XGBoost Feature Importance} \label{fig:xgb-feature-imp} 
+\end{figure}
 	
-	We have implemented Neural Network algorithm by creating a TensorFlow based work-flow. We have created various objects, such as input variables, loss computation, optimizer and the predictions for TensorFlow to create the model. TensorFlow tunes the hyper-parameters using number of cross-validation iterations before finally predicting the {\em sale prices} of test dataset.
-			
+	\subsection{Neural Network Algorithm}
+	Neural Network is, a {\em directed graph}, organized by layers and layers are created by number of interconnected neurons (or nodes). Every neuron in a layer is connected with all the neurons from previous layer; there will be no interaction of neurons within a layer. The performance of a Neural Network is measured using {\em cost or error function} and the dependent input {\em weight} variables. {\em Forward-propagation} and {\em back-propagation} are two techniques, neural network uses repeatedly until all the input variables are adjusted or calibrated to predict accurate output. During, forward-propagation, information moves in forward direction and passes through all the layers by applying certain weights to the input parameters. {\em Back-propagation} method minimizes the error in the {\em weights} by applying an algorithm called {\em gradient descent} at each iteration step. 
+	
+	Deep Learning is an advanced neural network, with multiple hidden layers (thousands or even more deep), that can work well with supervised (labeled) and unsupervised (unlabeled) datasets. Applications, such as speech, image and behavior patterns, having complex relationships in large-set of attributes, are best suited for Deep Learning Neural Networks. Deep Learning vectorizes the input and converts it into output vector space by decomposing complex geometric and polynomial equations into a series of simple transformations. These transformations go through neuron activation functions at each layer parameterized by input weights. Deep Learning makes neurons learn new features themselves, in an unsupervised manner, from existing features distributed in several hidden layers. {\em Stacked Autoencoder} (AE) is, a Deep Belief Network algorithm, to create advanced predictive models for large datasets having thousands or even millions of dimensions, automatically, with complex hierarchical attributes in non-linear fashion for simpler computing. Though AE is sophisticated, it is very difficult to understand the algorithm logic and so unable to reuse the learnings from the modeling to other systems. We have used {\em TensorFlow} python library to predict the {\em sale price} of housing dataset using simple feed-forward neural network. TensorFlow uses {\em tensors}, special multi-dimensional arrays to store the datasets for easier linear algebra and vector calculus operations.
+	
+	We have implemented Neural Network algorithm by creating a TensorFlow based work-flow. We have created various objects, such as input variables, loss computation, optimizer and the predictions for TensorFlow to create the model. TensorFlow tunes the hyper-parameters using number of cross-validation iterations before finally predicting the {\em sale prices} of test dataset. Deep Learning, by design, allows parallel programming, as each module - with all the dependencies among neurons - can run independently and parallelly from other modules within the network. Using Graphics Process Unit (GPU), module networks can achieve parallel programming without needing much of Central Processing Unit (CPU) allocation of a computer. Though GPU is intended for graphical processing, it works efficiently to run thousands of small mathematical functions, such as matrix multiplications, in parallel. Cloud computing and edge analytics offer flexible scale out distributed processing options using virtualization and containerization. Sophisticated algorithms and distributed computing make Deep Learning scale and perform well to process huge datasets. 
+	
 	\subsection{Model Ensembling}
 	We can create a robust predictive model with better accuracy by merging two or more machine learning algorithms. This technique is called {\em model ensembling}. Ensembled algorithms may be similar in functionality or may entirely be different from each other. Individual algorithms may not perform great but by ensembling them, the overall system can offer much better performance and accuracy. Variations in the predicting logic in each of these individual algorithms will bring unbiasedness into the unified model. {\em Bagging}, {\em boosting} and {\em stacking} are popular ensembling techniques. Many of the advanced machine learning algorithms use ensembled approaches to achieve accurate classifications or predictions. Random Forest uses bagging, XGBoost uses boosting and Neural Network applies stacking ensembling techniques. To optimize the predictions, we have created an ensembled model by averaging {\em Sale Price} of the top 3 performing ensembled algorithms - XGBoost, Lasso and Neural Network. As predicted, ensembled model has predicted better with less RMSE ({\em root mean squared error}), compared to all the individual algorithms. Following list displays each algorithm and the corresponding {\em root mean squared error} (RMSE).
-		
+	
 	\begin{itemize}
 		\item  SVM - RMSE = 0.2069 
 		\item  Random Forest - RMSE = 0.0519
@@ -535,53 +544,53 @@
 		\item  Ridge - RMSE = 0.0988
 		\item  Neural Network - RMSE = 0.20
 	\end{itemize}			
-
-
-   \section{Development Environment}
-    
-    \subsection{OS and Programming Language}
-    We have used {\em Ubuntu 16.4} Operating System that runs in Windows 10 through Oracle Virtual Box 5.2. Python 2.7  has been used as the programming language for this project. Data visualizations are done using {\em seaborn} and {\em matplotlib} packages. Most of the algorithms implemented in this project are using {\em sklearn} package. For the neural network algorithm, we have used {\em tensorflow} package as it offers simple programming interface to the complex processing needed by the algorithm. Our code is placed in gitbub repository at {\em  git@github.com:bigdata-i523/hid306.git}. 
-    
-    \subsection{Project Folder Structure}
-    Project is organized in three folders - code, data and images. Code folder has all the python code files. Data folder contains the {\em house pricing} sample datasets that we used for the exploratory analysis and {\em sale price} predictions. We also stored all the {\em sale price} prediction output files from various algorithms in the data folder. Images folder contains all the data visualization files that we have created during the analysis and in processing the algorithms. We wanted to create interactive and sharable code files that contain not only the python code but also corresponding explanation along with data visualizations. Jupyter Notebook application is ideal for such facilitation with python code components. Using Jupyter Notebook, it would be easy to share live code with the reviewers. Such environment allows to explore the code-base easily along with the interactive code execution and visualize all the corresponding exploratory analysis results with the graphs.
-    
-    \subsection{Project Files}
-    We have a total of 11 Jupyter Notebook driven python code files. First 4 files are focused on doing the exploratory data analysis and the next 6 files are meant for six supervised machine learning algorithms - SVM, Random Forest, Ridge, Lasso, Neural Network and XGBoost. Last code file is dedicated for ensembling the top 3 algorithms with best predictions of housing sale prices in the test dataset. We have named them in a sequence as there is an implicit order in the execution of these files. We wanted to do the data analysis first before running the predictive algorithms. 
-        
-    \subsection{List of Code Files}    
-    Following is the list of code files:
-    \begin{itemize}
-    	\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/1.1_exploratory_analysis_numerical.ipynb}{Exploratory Analysis Numerical} - To load datasets and analyze all numerical variables
-    	
-    	\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/1.2_exploratory_analysis_categorical.ipynb}{Exploratory Analysis Categorical} - To analyze categorical variables in the dataset
-    	
-    	\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/1.3_outlier_and_skewed_data_analysis.ipynb}{Outlier And Skewed Data Analysis} - Handles outlier and skewed data analysis
-    	
-    	\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/1.4_feature_engineering.ipynb}{Feature Engineering} - All the feature engineering is done in this file
-    	
-    	\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.1_algorithm_svm.ipynb}{SVM Algorithm} - Implementation of SVM algorithm
-    	
-    	\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.2_algorithm_random_forest.ipynb}{Random Forest Algorithm} - Implementation of Random Forest algorithm
-    	
-    	\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.3_algorithm_ridge.ipynb}{Ridge Algorithm} - Implementation of Ridge algorithm
-    	
-    	\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.4_algorithm_lasso.ipynb}{Lasso Algorithm} - Implementation of Lasso algorithm
-    	
-    	\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.5_algorithm_neural_network_tf.ipynb}{Neural Network Algorithm} - Implementation of Neural Network algorithm
-    	
-    	\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.6_algorithm_xgboost.ipynb}{XGBoost Algorithm} - Implementation of XGBoost algorithm
-    	
-    	\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/3_ensemble_kaggle_submission.ipynb}{Ensembled Model} - Implementation of Ensembled algorithm
-    \end{itemize}    
-    
-     \subsection{List of Data Files}    
-     Following is the list of data files:
-    \begin{itemize}        
-    	\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/train.csv}{Housing Dataset with Sale Price} - Sample training dataset with housing attributes along with the sale price
-    	\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/test.csv}{Housing Dataset without Sale Price} - Sample testing dataset similar to training dataset without the sale price
-    	
-       	\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/kaggle_python_svm.csv}{SVMs Algorithm Predictions} - Predicted Housing Sale Prices from SVM algorithm
-       
+	
+	
+	\section{Development Environment}
+	
+	\subsection{OS and Programming Language}
+	We have used {\em Ubuntu 16.4} Operating System that runs in Windows 10 through Oracle Virtual Box 5.2. Python 2.7  has been used as the programming language for this project. Data visualizations are done using {\em seaborn} and {\em matplotlib} packages. Most of the algorithms implemented in this project are using {\em sklearn} package. For the neural network algorithm, we have used {\em tensorflow} package as it offers simple programming interface to the complex processing needed by the algorithm. Our code is placed in gitbub repository at {\em  git@github.com:bigdata-i523/hid306.git}. 
+	
+	\subsection{Project Folder Structure}
+	Project is organized in three folders - code, data and images. Code folder has all the python code files. Data folder contains the {\em house pricing} sample datasets that we used for the exploratory analysis and {\em sale price} predictions. We also stored all the {\em sale price} prediction output files from various algorithms in the data folder. Images folder contains all the data visualization files that we have created during the analysis and in processing the algorithms. We wanted to create interactive and sharable code files that contain not only the python code but also corresponding explanation along with data visualizations. Jupyter Notebook application is ideal for such facilitation with python code components. Using Jupyter Notebook, it would be easy to share live code with the reviewers. Such environment allows to explore the code-base easily along with the interactive code execution and visualize all the corresponding exploratory analysis results with the graphs.
+	
+	\subsection{Project Files}
+	We have a total of 11 Jupyter Notebook driven python code files. First 4 files are focused on doing the exploratory data analysis and the next 6 files are meant for six supervised machine learning algorithms - SVM, Random Forest, Ridge, Lasso, Neural Network and XGBoost. Last code file is dedicated for ensembling the top 3 algorithms with best predictions of housing sale prices in the test dataset. We have named them in a sequence as there is an implicit order in the execution of these files. We wanted to do the data analysis first before running the predictive algorithms. 
+	
+	\subsection{List of Code Files}    
+	Following is the list of code files:
+	\begin{itemize}
+		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/1.1_exploratory_analysis_numerical.ipynb}{Exploratory Analysis Numerical} - To load datasets and analyze all numerical variables
+		
+		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/1.2_exploratory_analysis_categorical.ipynb}{Exploratory Analysis Categorical} - To analyze categorical variables in the dataset
+		
+		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/1.3_outlier_and_skewed_data_analysis.ipynb}{Outlier And Skewed Data Analysis} - Handles outlier and skewed data analysis
+		
+		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/1.4_feature_engineering.ipynb}{Feature Engineering} - All the feature engineering is done in this file
+		
+		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.1_algorithm_svm.ipynb}{SVM Algorithm} - Implementation of SVM algorithm
+		
+		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.2_algorithm_random_forest.ipynb}{Random Forest Algorithm} - Implementation of Random Forest algorithm
+		
+		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.3_algorithm_ridge.ipynb}{Ridge Algorithm} - Implementation of Ridge algorithm
+		
+		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.4_algorithm_lasso.ipynb}{Lasso Algorithm} - Implementation of Lasso algorithm
+		
+		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.5_algorithm_neural_network_tf.ipynb}{Neural Network Algorithm} - Implementation of Neural Network algorithm
+		
+		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/2.6_algorithm_xgboost.ipynb}{XGBoost Algorithm} - Implementation of XGBoost algorithm
+		
+		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/code/3_ensemble_kaggle_submission.ipynb}{Ensembled Model} - Implementation of Ensembled algorithm
+	\end{itemize}    
+	
+	\subsection{List of Data Files}    
+	Following is the list of data files:
+	\begin{itemize}        
+		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/train.csv}{Housing Dataset with Sale Price} - Sample training dataset with housing attributes along with the sale price
+		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/test.csv}{Housing Dataset without Sale Price} - Sample testing dataset similar to training dataset without the sale price
+		
+		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/kaggle_python_svm.csv}{SVMs Algorithm Predictions} - Predicted Housing Sale Prices from SVM algorithm
+		
 		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/kaggle_python_random_forest.csv}{Random Forest Algorithm Predictions} - Predicted Housing Sale Prices from Random Forest algorithm
 		
 		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/kaggle_python_ridge.csv}{Ridge Algorithm Predictions} - Predicted Housing Sale Prices from Ridge algorithm
@@ -594,25 +603,25 @@
 		
 		\item \href{https://github.com/bigdata-i523/hid306/blob/master/project/data/kaggle_python_ensemble.csv}{Ensembled Model Predictions} - Predicted Housing Sale Prices from Ensembled algorithm    	
 	\end{itemize}    
-   
-   
+	
+	
 	\section{Conclusion}
 	
 	Generally, ensemble models performs better compared to individual algorithms. However, there are a few factors that influence accuracy and performance of the algorithms, such as handcrafted feature engineering, proper cost function with regularized input to address non-linearities in the training datasets and tuning hyper-parameters of the algorithms. While Deep Learning Neural Networks are good for image processing, K-Nearest Neighbor algorithms can handle unsupervised datasets with less complexity. Domain knowledge and algorithm selection play vital role in getting accurate predictions. XGBoost, Random Forest, Lasso and Neural Networks are advanced machine learning algorithms dominating in the Big Data analytics for classification and regression related tasks. With ensembling and iterative learning techniques, they can scale well and offer better predictions for huge datasets having large number of features. 
-		
+	
 	\appendix
-		
+	
 	\nocite{*}
 	
 	\begin{acks}	
-			The authors would like to thank Dr. Gregor von Laszewski and the Teaching Assistants for their support and great suggestions. Authors would also want to thank Kaggle Website for the sample datasets and the contributed developers for their valuable information, ideas and contributions.		
+		The authors would like to thank Dr. Gregor von Laszewski and the Teaching Assistants for their support and great suggestions. Authors would also want to thank Kaggle Website for the sample datasets and the contributed developers for their valuable information, ideas and contributions.		
 	\end{acks}
-
-
+	
+	
 	\bibliographystyle{ACM-Reference-Format}
 	\bibliography{report} 	
-
-		%Appendix A
+	
+	%Appendix A
 	\section{Sample Dataset File Details}
 	The training and testing sample datasets contain the same variables explaining the housing real estate aspects. Training dataset contains the sale price information whereas the testing dataset does not the sale price as that is the target variable we need to predict using supervised machine learning algorithm. Following are the list of variables describing the housing real estate domain. Good understanding of the domain is needed for better exploratory data analysis and to apply the matching machine learning algorithms to the problem space.
 	
