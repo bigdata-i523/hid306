@@ -17,7 +17,6 @@ paper1:
         - 306
     status: 100%; 10/26/2017
     title: The Internet of Things and Big Data Analytics
-    type: latex
     url: https://github.com/bigdata-i523/hid306/paper1
 paper2:
     review: Nov 6 2017
@@ -36,7 +35,6 @@ paper2:
         - 306
     status: 100%; 11/4/2017
     title: Why Deep Learning matters in IoT Data Analytics?
-    type: latex
     url: https://github.com/bigdata-i523/hid306/paper2
 project:
     review: Dec 4 2017
